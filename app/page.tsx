@@ -1,8 +1,13 @@
 import Navigation from './components/Navigation';
 import SocialLinks from './components/SocialLinks';
 import Link from 'next/link';
+import Image from 'next/image';
+import { getWebMobileYears, getGameDevYears } from './utils/calculateExperience';
 
 export default function Home() {
+  const webMobileYears = getWebMobileYears();
+  const gameDevYears = getGameDevYears();
+
   const featuredProjects = [
     {
       title: 'Master Cat Games',
@@ -27,14 +32,25 @@ export default function Home() {
         {/* Hero Section */}
         <section className="min-h-screen flex items-center justify-center px-6 pt-20">
           <div className="max-w-4xl mx-auto text-center animate-fadeIn">
+            <div className="mb-8 flex justify-center">
+              <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-accent shadow-2xl">
+                <Image
+                  src="/augusto-polonio-avatar.png"
+                  alt="Augusto Polonio"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance">
               Hi, I'm <span className="gradient-text">Augusto Polonio</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted mb-8 max-w-2xl mx-auto text-balance">
-              Senior Developer Transitioning to Game Development
+            <p className="text-xl md:text-2xl text-muted mb-8 max-w-3xl mx-auto text-balance">
+              Senior Software Developer & Game Developer
             </p>
             <p className="text-lg text-muted/80 mb-12 max-w-3xl mx-auto leading-relaxed">
-              13+ years building web and mobile applications with JavaScript and .NET. 
+              {webMobileYears}+ years building web and mobile applications with JavaScript and .NET. 
               Now crafting interactive experiences with Unity and Godot, bringing technical expertise 
               and creativity to game development.
             </p>
@@ -59,15 +75,28 @@ export default function Home() {
         {/* About Section */}
         <section id="about" className="py-24 px-6 bg-zinc-50 dark:bg-zinc-900/30">
           <div className="max-w-4xl mx-auto">
+            <div className="flex justify-center mb-8">
+              <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-accent/50">
+                <Image
+                  src="/augusto-polonio-avatar.png"
+                  alt="Augusto Polonio"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
             <h2 className="text-4xl font-bold mb-12 text-center">About Me</h2>
             <div className="space-y-6 text-lg text-muted/90 leading-relaxed">
               <p>
-                I am a Senior Web and Mobile developer with over 13 years of experience in JavaScript and .NET (C#), 
-                now transitioning my career into game development.
+                I'm a senior web and mobile developer, creating applications using JavaScript and .NET (C#) since 2013, and I'm now looking to transition into game development.
               </p>
               <p>
                 Since 2015, I have been building projects in Unity and, more recently, Godot, creating interactive 
-                experiences and expanding my portfolio. My strengths include optimizing application performance, 
+                experiences and expanding my portfolio. 
+                I am passionate about game design and mechanics, constantly learning and experimenting with new ideas.
+              </p>
+              <p>
+                My strengths include optimizing application performance, 
                 managing complex migrations, and delivering scalable solutions — skills I now apply to game mechanics and design.
               </p>
               <p>
@@ -76,21 +105,16 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-8 mt-16">
+            <div className="grid md:grid-cols-2 gap-8 mt-16 max-w-2xl mx-auto">
               <div className="p-6 bg-background rounded-lg border border-zinc-200 dark:border-zinc-800">
                 <div className="text-4xl mb-4">💻</div>
-                <h3 className="text-xl font-semibold mb-2">13+ Years</h3>
+                <h3 className="text-xl font-semibold mb-2">{webMobileYears}+ Years</h3>
                 <p className="text-muted">Web & Mobile Development</p>
               </div>
               <div className="p-6 bg-background rounded-lg border border-zinc-200 dark:border-zinc-800">
                 <div className="text-4xl mb-4">🎮</div>
-                <h3 className="text-xl font-semibold mb-2">Since 2015</h3>
+                <h3 className="text-xl font-semibold mb-2">{gameDevYears}+ Years</h3>
                 <p className="text-muted">Game Development Journey</p>
-              </div>
-              <div className="p-6 bg-background rounded-lg border border-zinc-200 dark:border-zinc-800">
-                <div className="text-4xl mb-4">🛠️</div>
-                <h3 className="text-xl font-semibold mb-2">Full Stack</h3>
-                <p className="text-muted">Unity, Godot, JS, .NET</p>
               </div>
             </div>
           </div>

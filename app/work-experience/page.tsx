@@ -1,13 +1,17 @@
 import Navigation from '../components/Navigation';
 import SocialLinks from '../components/SocialLinks';
 import Link from 'next/link';
+import Image from 'next/image';
+import { getWebMobileYears } from '../utils/calculateExperience';
 
 export default function WorkExperience() {
+  const webMobileYears = getWebMobileYears();
+  
   // Placeholder for work experience - you can add your detailed work history here later
   const experiences = [
     {
       title: 'Senior Web & Mobile Developer',
-      period: '13+ Years Experience',
+      period: `${webMobileYears}+ Years Experience`,
       description: 'Specialized in JavaScript and .NET (C#) development, delivering scalable web and mobile solutions.',
       highlights: [
         'Optimized application performance across multiple platforms',
@@ -38,7 +42,17 @@ export default function WorkExperience() {
               Back to Home
             </Link>
             
-            <h1 className="text-5xl font-bold mb-6">Work Experience</h1>
+            <div className="flex items-center gap-6 mb-6">
+              <div className="relative w-20 h-20 rounded-full overflow-hidden border-4 border-accent/50 flex-shrink-0">
+                <Image
+                  src="/augusto-polonio-avatar.png"
+                  alt="Augusto Polonio"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <h1 className="text-5xl font-bold">Work Experience</h1>
+            </div>
             <p className="text-xl text-muted">
               Over a decade of professional software development experience, building robust applications 
               and leading technical initiatives.

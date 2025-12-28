@@ -14,7 +14,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Augusto Polonio | Game Developer",
-  description: "Senior developer transitioning into game development. 13+ years of experience in web/mobile development, now creating interactive experiences with Unity and Godot.",
+  description: "Senior Software Developer transitioning into game development. 13+ years of experience in web/mobile development, now creating interactive experiences with Unity and Godot.",
+  openGraph: {
+    title: "Augusto Polonio | Game Developer",
+    description: "Senior Software Developer transitioning into game development. 13+ years of experience in web/mobile development, now creating interactive experiences with Unity and Godot.",
+    images: ['/augusto-polonio-avatar.png'],
+  },
 };
 
 export default function RootLayout({
