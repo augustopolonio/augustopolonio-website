@@ -3,6 +3,7 @@ import SocialLinks from './components/SocialLinks';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getWebMobileYears, getGameDevYears } from './utils/calculateExperience';
+import { ArrowRight, CheckCircle2, Laptop, Gamepad2 } from 'lucide-react';
 
 export default function Home() {
   const webMobileYears = getWebMobileYears();
@@ -107,12 +108,16 @@ export default function Home() {
             
             <div className="grid md:grid-cols-2 gap-8 mt-16 max-w-2xl mx-auto">
               <div className="p-6 bg-background rounded-lg border border-zinc-200 dark:border-zinc-800">
-                <div className="text-4xl mb-4">💻</div>
+                <div className="flex justify-center mb-4">
+                  <Laptop className="w-12 h-12 text-accent" />
+                </div>
                 <h3 className="text-xl font-semibold mb-2">{webMobileYears}+ Years</h3>
                 <p className="text-muted">Web & Mobile Development</p>
               </div>
               <div className="p-6 bg-background rounded-lg border border-zinc-200 dark:border-zinc-800">
-                <div className="text-4xl mb-4">🎮</div>
+                <div className="flex justify-center mb-4">
+                  <Gamepad2 className="w-12 h-12 text-accent" />
+                </div>
                 <h3 className="text-xl font-semibold mb-2">{gameDevYears}+ Years</h3>
                 <p className="text-muted">Game Development Journey</p>
               </div>
@@ -163,9 +168,7 @@ export default function Home() {
                       className="inline-flex items-center text-accent hover:text-accent-dark font-medium"
                     >
                       View Project
-                      <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     </a>
                   )}
                 </div>
