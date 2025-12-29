@@ -1,6 +1,11 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { ExternalLink, ArrowRight } from 'lucide-react';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import ScrollReveal from './ScrollReveal';
 
 interface Game {
   id: number;
@@ -77,25 +82,59 @@ export default function FeaturedProjects() {
     },
   ];
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50, rotateX: -15 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      rotateX: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.4, 0.25, 1] as [number, number, number, number]
+      }
+    }
+  };
+
   return (
     <section id="projects" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-4 text-center">Featured Projects</h2>
-        <p className="text-muted text-center mb-8 max-w-2xl mx-auto">
-          A showcase of my released game projects from{' '}
-          <a 
-            href="https://mastercatgames.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:text-accent-dark font-medium inline-flex items-center gap-1"
-          >
-            Master Cat Games
-            <ExternalLink className="w-4 h-4" />
-          </a>
-          , my indie game studio.
-        </p>
+        <ScrollReveal variant="blur">
+          <h2 className="text-4xl font-bold mb-4 text-center">Featured Projects</h2>
+          <p className="text-muted text-center mb-8 max-w-2xl mx-auto">
+            A showcase of my released game projects from{' '}
+            <a 
+              href="https://mastercatgames.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:text-accent-dark font-medium inline-flex items-center gap-1"
+            >
+              Master Cat Games
+              <ExternalLink className="w-4 h-4" />
+            </a>
+            , my indie game studio.
+          </p>
+        </ScrollReveal>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <motion.div 
+          ref={ref}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {games.map((game) => {
             const CardWrapper = game.status === 'in-development' ? Link : 'a';
             const cardProps = game.status === 'in-development' 
@@ -103,11 +142,16 @@ export default function FeaturedProjects() {
               : { href: game.link, target: "_blank", rel: "noopener noreferrer" };
             
             return (
-              <CardWrapper
+              <motion.div
                 key={game.id}
-                {...cardProps}
-                className="group relative bg-zinc-50 dark:bg-zinc-900/30 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all hover:shadow-xl overflow-hidden"
+                variants={cardVariants}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
               >
+                <CardWrapper
+                  {...cardProps}
+                  className="block group relative bg-zinc-50 dark:bg-zinc-900/30 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all hover:shadow-xl overflow-hidden h-full"
+                >
                 {game.status === 'in-development' && (
                   <div className="absolute top-4 right-4 z-10 px-3 py-1.5 bg-accent text-white text-xs font-semibold rounded-full shadow-lg">
                     IN DEVELOPMENT
@@ -158,11 +202,13 @@ export default function FeaturedProjects() {
                 </div>
               </div>
             </CardWrapper>
+            </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
-        <div className="text-center space-y-6">
+        <ScrollReveal variant="fadeUp" delay={0.3}>
+          <div className="text-center space-y-6">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="https://mastercatgames.vercel.app/"
@@ -192,6 +238,7 @@ export default function FeaturedProjects() {
             </Link>
           </p>
         </div>
+      </ScrollReveal>
       </div>
     </section>
   );
