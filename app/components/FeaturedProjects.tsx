@@ -10,6 +10,7 @@ interface Game {
   tags: string[];
   image: string;
   link: string;
+  engine: 'unity' | 'godot';
 }
 
 export default function FeaturedProjects() {
@@ -22,6 +23,7 @@ export default function FeaturedProjects() {
       tags: ["Horror", "Survival", "Puzzle", "Single Player"],
       image: '/game_covers/Alone_at_the_fast_food.png',
       link: '/unreleased-projects',
+      engine: 'godot',
     },
     {
       id: 1,
@@ -31,6 +33,7 @@ export default function FeaturedProjects() {
       tags: ["Adventure", "Platformer", "2.5D", "Single Player", "Casual"],
       image: '/game_covers/Oliver_the_octopus.jpg',
       link: 'https://mastercatgames.itch.io/oliver-the-octopus',
+      engine: 'unity',
     },
     {
       id: 2,
@@ -40,6 +43,7 @@ export default function FeaturedProjects() {
       tags: ["Puzzle", "Casual", "Time Management", "Single Player", "Color Matching", "Mobile"],
       image: '/game_covers/Tinturaria.png',
       link: 'https://play.google.com/store/apps/details?id=com.mastercat.tinturaria',
+      engine: 'unity',
     },
     {
       id: 3,
@@ -49,6 +53,7 @@ export default function FeaturedProjects() {
       tags: ["Arcade", "Casual", "Endless Runner", "Single Player", "Mobile"],
       image: '/game_covers/Flappy_Black_Cat.png',
       link: 'https://play.google.com/store/apps/details?id=com.mastercat.flappyblackcat',
+      engine: 'unity',
     },
     {
       id: 4,
@@ -58,6 +63,7 @@ export default function FeaturedProjects() {
       tags: ["Puzzle", "Casual", "Stacking", "Single Player", "Mobile", "Addictive", "Family Friendly", "Tetris-like"],
       image: '/game_covers/Crazy_Stack_Blocks.png',
       link: 'https://mastercatgames.itch.io/crazy-stack-blocks',
+      engine: 'unity',
     },
     {
       id: 5,
@@ -67,6 +73,7 @@ export default function FeaturedProjects() {
       tags: ["Endless Runner", "Casual", "Single Player", "Mobile", "Collecting", "Obstacles"],
       image: '/game_covers/Running_Food.png',
       link: 'https://play.google.com/store/apps/details?id=com.mastercat.runningfood',
+      engine: 'unity',
     },
   ];
 
@@ -113,6 +120,16 @@ export default function FeaturedProjects() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
+                  <div className="absolute top-3 left-3 z-10 px-2 py-1.5 bg-black/60 backdrop-blur-sm rounded-md flex items-center gap-1.5">
+                    <Image
+                      src={game.engine === 'unity' ? '/unity_logo.png' : '/godot_logo.png'}
+                      alt={game.engine === 'unity' ? 'Unity' : 'Godot'}
+                      width={20}
+                      height={20}
+                      className="object-contain"
+                    />
+                    <span className="text-white text-xs font-medium">{game.engine === 'unity' ? 'Unity' : 'Godot'}</span>
+                  </div>
                 </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2 group-hover:text-accent transition-colors">

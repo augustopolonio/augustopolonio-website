@@ -11,6 +11,7 @@ interface UnreleasedProject {
   status: string;
   tags: string[];
   image: string;
+  engine: 'unity' | 'godot';
 }
 
 export default function UnreleasedProjects() {
@@ -20,8 +21,9 @@ export default function UnreleasedProjects() {
       title: "Alone at the Fast Food",
       description: "A work-in-progress horror survival game set in an abandoned fast food restaurant. Navigate through dark corridors, solve puzzles, and uncover the mystery behind the restaurant's closure.",
       status: "In Development",
-      tags: ["Horror", "Survival", "Puzzle", "Single Player", "Unity"],
+      tags: ["Horror", "Survival", "Puzzle", "Single Player"],
       image: '/game_covers/Alone_at_the_fast_food.png',
+      engine: 'godot',
     },
     // Add more unreleased projects here as they become available
   ];
@@ -72,6 +74,16 @@ export default function UnreleasedProjects() {
                         fill
                         className="object-cover"
                       />
+                      <div className="absolute top-3 left-3 z-10 px-2 py-1.5 bg-black/60 backdrop-blur-sm rounded-md flex items-center gap-1.5">
+                        <Image
+                          src={project.engine === 'unity' ? '/unity_logo.png' : '/godot_logo.png'}
+                          alt={project.engine === 'unity' ? 'Unity' : 'Godot'}
+                          width={20}
+                          height={20}
+                          className="object-contain"
+                        />
+                        <span className="text-white text-xs font-medium">{project.engine === 'unity' ? 'Unity' : 'Godot'}</span>
+                      </div>
                     </div>
                     
                     <div className="p-8">
