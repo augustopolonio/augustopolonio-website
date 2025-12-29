@@ -1,5 +1,6 @@
 import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
+import InteractiveTerminal from './components/InteractiveTerminal';
 import FeaturedProjects from './components/FeaturedProjects';
 import ScrollReveal from './components/ScrollReveal';
 import StaggerChildren, { StaggerItem } from './components/StaggerChildren';
@@ -20,6 +21,9 @@ export default function Home() {
       <main className="min-h-screen">
         {/* Hero Section */}
         <HeroSection />
+
+        {/* Interactive Terminal Section */}
+        <InteractiveTerminal />
 
         {/* Featured Projects Section */}
         <FeaturedProjects />
