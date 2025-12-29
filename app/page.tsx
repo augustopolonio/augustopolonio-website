@@ -77,10 +77,10 @@ export default function Home() {
                 View Projects
               </Link>
               <Link
-                href="#contact"
+                href="#about"
                 className="px-8 py-4 border-2 border-accent text-accent hover:bg-accent hover:text-white rounded-lg font-medium transition-colors"
               >
-                Get in Touch
+                About Me
               </Link>
             </div>
             <SocialLinks />
@@ -89,33 +89,39 @@ export default function Home() {
 
         {/* About Section */}
         <section id="about" className="py-24 px-6 bg-zinc-50 dark:bg-zinc-900/30">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex justify-center mb-8">
-              <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-accent/50">
-                <Image
-                  src="/augusto-polonio-avatar.png"
-                  alt="Augusto Polonio"
-                  fill
-                  className="object-cover"
-                />
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold mb-16 text-center">About Me</h2>
+            
+            <div className="grid md:grid-cols-2 gap-12 items-start mb-16">
+              {/* Image Column */}
+              <div className="flex justify-center md:justify-end">
+                <div className="relative w-72 h-72 md:w-80 md:h-80 rounded-lg overflow-hidden border-4 border-accent/50 shadow-2xl">
+                  <Image
+                    src="/AugustoPolonio.jpg"
+                    alt="Augusto Polonio"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
               </div>
-            </div>
-            <h2 className="text-4xl font-bold mb-12 text-center">About Me</h2>
-            <div className="space-y-6 text-lg text-muted/90 leading-relaxed">
-              <p>
-                I'm a Senior Web and Mobile Developer with over {webMobileYears} years of experience building scalable applications using JavaScript and .NET (C#). 
-                Today, I'm transitioning my career into Game Development — a field where I can merge my technical expertise with my lifelong passion for creating interactive experiences.
-              </p>
-              <p>
-                I've been developing games as a hobby since 2015, using Unity and more recently Godot, while continuously expanding my portfolio and skills. 
-                Through these projects, I've explored gameplay mechanics, performance optimization, and system design, experimenting with new ideas and sharing DevLogs to document my journey.
-              </p>
-              <p>
-                My background in software engineering has equipped me with strong skills in performance tuning, complex migrations, and delivering robust solutions — strengths I now apply to crafting engaging game mechanics and immersive worlds.
-              </p>
-              <p>
-                With a degree in Systems Analysis and Development and years of independent game creation, I'm eager to contribute my blend of technical depth and creative vision to a professional role in Game Development.
-              </p>
+              
+              {/* Text Column */}
+              <div className="space-y-6 text-lg text-muted/90 leading-relaxed">
+                <p>
+                  I'm a Senior Web and Mobile Developer with over {webMobileYears} years of experience building scalable applications using JavaScript and .NET (C#). 
+                  Today, I'm transitioning my career into Game Development — a field where I can merge my technical expertise with my lifelong passion for creating interactive experiences.
+                </p>
+                <p>
+                  I've been developing games as a hobby since 2015, using Unity and more recently Godot, while continuously expanding my portfolio and skills. 
+                  Through these projects, I've explored gameplay mechanics, performance optimization, and system design, experimenting with new ideas and sharing DevLogs to document my journey.
+                </p>
+                <p>
+                  My background in software engineering has equipped me with strong skills in performance tuning, complex migrations, and delivering robust solutions — strengths I now apply to crafting engaging game mechanics and immersive worlds.
+                </p>
+                <p>
+                  With a degree in Systems Analysis and Development and years of independent game creation, I'm eager to contribute my blend of technical depth and creative vision to a professional role in Game Development.
+                </p>
+              </div>
             </div>
             
             <div className="grid md:grid-cols-2 gap-8 mt-16 max-w-2xl mx-auto">
