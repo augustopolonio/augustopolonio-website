@@ -2,6 +2,7 @@ import Navigation from './components/Navigation';
 import SocialLinks from './components/SocialLinks';
 import TypewriterText from './components/TypewriterText';
 import FeaturedProjects from './components/FeaturedProjects';
+import FlipAvatar from './components/FlipAvatar';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getWebMobileYears, getGameDevYears } from './utils/calculateExperience';
@@ -19,17 +20,7 @@ export default function Home() {
         {/* Hero Section */}
         <section className="min-h-screen flex items-center justify-center px-6 pt-20">
           <div className="max-w-4xl mx-auto text-center animate-fadeIn">
-            <div className="mb-8 flex justify-center">
-              <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-accent shadow-2xl">
-                <Image
-                  src="/augusto-polonio-avatar.png"
-                  alt="Augusto Polonio"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-            </div>
+            <FlipAvatar />
             <div className="min-h-[180px] md:min-h-[220px] flex items-center justify-center">
               <h1 className="text-5xl md:text-7xl font-bold text-balance text-center">
                 Hi, I'm <span className="inline-block min-w-[280px] md:min-w-[700px] text-center"><TypewriterText 
