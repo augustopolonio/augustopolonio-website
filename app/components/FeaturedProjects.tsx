@@ -15,6 +15,15 @@ interface Game {
 export default function FeaturedProjects() {
   const games: Game[] = [
     {
+      id: 0,
+      title: "Alone at the Fast Food",
+      description: "A work-in-progress horror survival game set in an abandoned fast food restaurant. Navigate through dark corridors, solve puzzles, and uncover the mystery behind the restaurant's closure.",
+      status: "in-development",
+      tags: ["Horror", "Survival", "Puzzle", "Single Player"],
+      image: '/game_covers/Alone_at_the_fast_food.png',
+      link: '/unreleased-projects',
+    },
+    {
       id: 1,
       title: "Oliver the Octopus",
       description: "A platform game based on crates with different mechanics.",
@@ -80,22 +89,31 @@ export default function FeaturedProjects() {
         </p>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {games.map((game) => (
-            <a
-              key={game.id}
-              href={game.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-zinc-50 dark:bg-zinc-900/30 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all hover:shadow-xl overflow-hidden"
-            >
-              <div className="relative w-full aspect-video overflow-hidden">
-                <Image
-                  src={game.image}
-                  alt={game.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
+          {games.map((game) => {
+            const CardWrapper = game.status === 'in-development' ? Link : 'a';
+            const cardProps = game.status === 'in-development' 
+              ? { href: game.link }
+              : { href: game.link, target: "_blank", rel: "noopener noreferrer" };
+            
+            return (
+              <CardWrapper
+                key={game.id}
+                {...cardProps}
+                className="group relative bg-zinc-50 dark:bg-zinc-900/30 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all hover:shadow-xl overflow-hidden"
+              >
+                {game.status === 'in-development' && (
+                  <div className="absolute top-4 right-4 z-10 px-3 py-1.5 bg-accent text-white text-xs font-semibold rounded-full shadow-lg">
+                    IN DEVELOPMENT
+                  </div>
+                )}
+                <div className="relative w-full aspect-video overflow-hidden">
+                  <Image
+                    src={game.image}
+                    alt={game.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2 group-hover:text-accent transition-colors">
                   {game.title}
@@ -122,8 +140,9 @@ export default function FeaturedProjects() {
                   )}
                 </div>
               </div>
-            </a>
-          ))}
+            </CardWrapper>
+            );
+          })}
         </div>
 
         <div className="text-center space-y-6">
