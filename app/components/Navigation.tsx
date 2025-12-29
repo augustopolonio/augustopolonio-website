@@ -11,8 +11,11 @@ export default function Navigation() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold hover:opacity-80 transition-opacity">
-            Augusto Polonio
+          <Link href="/" className="hover:opacity-80 transition-opacity">
+            <div className="flex flex-col">
+              <span className="text-xl font-bold">Augusto Polonio</span>
+              <span className="text-xs text-muted">Senior Software & Game Developer</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
