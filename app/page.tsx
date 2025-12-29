@@ -51,7 +51,7 @@ export default function Home() {
                   texts={[
                     'Augusto Polonio',
                     'a Game Developer',
-                    'a Senior Software Developer',
+                    'a Software Developer',
                     'Augusto Polonio'
                   ]}
                   className="gradient-text"
