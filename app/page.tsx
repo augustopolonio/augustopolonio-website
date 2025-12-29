@@ -4,7 +4,7 @@ import TypewriterText from './components/TypewriterText';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getWebMobileYears, getGameDevYears } from './utils/calculateExperience';
-import { ArrowRight, CheckCircle2, Laptop, Gamepad2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Laptop, Gamepad2, FileDown } from 'lucide-react';
 
 export default function Home() {
   const webMobileYears = getWebMobileYears();
@@ -133,6 +133,24 @@ export default function Home() {
                 <h3 className="text-xl font-semibold mb-2">{gameDevYears}+ Years</h3>
                 <p className="text-muted">Exploring Game Development</p>
               </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
+              <a
+                href="/Augusto Polonio - Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-accent hover:bg-accent-dark text-white rounded-lg font-medium transition-colors"
+              >
+                <FileDown className="w-5 h-5" />
+                Download Resume
+              </a>
+              <Link
+                href="#contact"
+                className="px-8 py-4 border-2 border-accent text-accent hover:bg-accent hover:text-white rounded-lg font-medium transition-colors"
+              >
+                Get in Touch
+              </Link>
             </div>
           </div>
         </section>

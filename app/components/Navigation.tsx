@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, FileDown } from 'lucide-react';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,6 +29,15 @@ export default function Navigation() {
             <Link href="/#contact" className="text-sm hover:text-accent transition-colors">
               Contact
             </Link>
+            <a
+              href="/Augusto Polonio - Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-sm text-accent hover:text-accent-dark transition-colors"
+            >
+              <FileDown className="w-4 h-4" />
+              Resume
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -76,6 +85,16 @@ export default function Navigation() {
             >
               Contact
             </Link>
+            <a
+              href="/Augusto Polonio - Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-sm text-accent hover:text-accent-dark transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <FileDown className="w-4 h-4" />
+              Resume
+            </a>
           </div>
         )}
       </div>
