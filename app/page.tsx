@@ -1,5 +1,6 @@
 import Navigation from './components/Navigation';
 import SocialLinks from './components/SocialLinks';
+import TypewriterText from './components/TypewriterText';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getWebMobileYears, getGameDevYears } from './utils/calculateExperience';
@@ -44,17 +45,30 @@ export default function Home() {
                 />
               </div>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance">
-              Hi, I'm <span className="gradient-text">Augusto Polonio</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-muted mb-8 max-w-3xl mx-auto text-balance">
+            <div className="min-h-[180px] md:min-h-[220px] flex items-center justify-center">
+              <h1 className="text-5xl md:text-7xl font-bold text-balance">
+                Hi, I'm <TypewriterText 
+                  texts={[
+                    'Augusto Polonio',
+                    'a Game Developer',
+                    'a Senior Software Developer',
+                    'Augusto Polonio'
+                  ]}
+                  className="gradient-text"
+                  typingSpeed={80}
+                  deletingSpeed={40}
+                  pauseTime={2500}
+                />
+              </h1>
+            </div>
+            {/* <p className="text-xl md:text-2xl text-muted mb-8 max-w-3xl mx-auto text-balance">
               Senior Software Developer & Game Developer
-            </p>
-            <p className="text-lg text-muted/80 mb-12 max-w-3xl mx-auto leading-relaxed">
-              {webMobileYears}+ years building web and mobile applications with JavaScript and .NET. 
-              Now crafting interactive experiences with Unity and Godot, bringing technical expertise 
-              and creativity to game development.
-            </p>
+            </p> */}
+            {/* <p className="text-lg text-muted/80 mb-12 max-w-3xl mx-auto leading-relaxed">
+              I'm a Senior Software Developer with {webMobileYears}+ years of experience building web and mobile applications using JavaScript and .NET. 
+              I'm also a Game Developer with {gameDevYears}+ years creating interactive experiences with Unity and Godot, 
+              bringing technical expertise and creativity to every project.
+            </p> */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <Link
                 href="#projects"
@@ -89,20 +103,18 @@ export default function Home() {
             <h2 className="text-4xl font-bold mb-12 text-center">About Me</h2>
             <div className="space-y-6 text-lg text-muted/90 leading-relaxed">
               <p>
-                I'm a senior web and mobile developer, creating applications using JavaScript and .NET (C#) since 2013, and I'm now looking to transition into game development.
+                I'm a Senior Web and Mobile Developer with over {webMobileYears} years of experience building scalable applications using JavaScript and .NET (C#). 
+                Today, I'm transitioning my career into Game Development — a field where I can merge my technical expertise with my lifelong passion for creating interactive experiences.
               </p>
               <p>
-                Since 2015, I have been building projects in Unity and, more recently, Godot, creating interactive 
-                experiences and expanding my portfolio. 
-                I am passionate about game design and mechanics, constantly learning and experimenting with new ideas.
+                I've been developing games as a hobby since 2015, using Unity and more recently Godot, while continuously expanding my portfolio and skills. 
+                Through these projects, I've explored gameplay mechanics, performance optimization, and system design, experimenting with new ideas and sharing DevLogs to document my journey.
               </p>
               <p>
-                My strengths include optimizing application performance, 
-                managing complex migrations, and delivering scalable solutions — skills I now apply to game mechanics and design.
+                My background in software engineering has equipped me with strong skills in performance tuning, complex migrations, and delivering robust solutions — strengths I now apply to crafting engaging game mechanics and immersive worlds.
               </p>
               <p>
-                With a degree in Systems Analysis and Development and a passion for games cultivated over many years, 
-                I am eager to bring both technical expertise and creativity to a professional game development role.
+                With a degree in Systems Analysis and Development and years of independent game creation, I'm eager to contribute my blend of technical depth and creative vision to a professional role in Game Development.
               </p>
             </div>
             
@@ -119,7 +131,7 @@ export default function Home() {
                   <Gamepad2 className="w-12 h-12 text-accent" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{gameDevYears}+ Years</h3>
-                <p className="text-muted">Game Development Journey</p>
+                <p className="text-muted">Exploring Game Development</p>
               </div>
             </div>
           </div>
