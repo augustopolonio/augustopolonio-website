@@ -46,8 +46,8 @@ export default function Home() {
               </div>
             </div>
             <div className="min-h-[180px] md:min-h-[220px] flex items-center justify-center">
-              <h1 className="text-5xl md:text-7xl font-bold text-balance">
-                Hi, I'm <TypewriterText 
+              <h1 className="text-5xl md:text-7xl font-bold text-balance text-center">
+                Hi, I'm <span className="inline-block min-w-[280px] md:min-w-[700px] text-center"><TypewriterText 
                   texts={[
                     'Augusto Polonio',
                     'a Game Developer',
@@ -58,7 +58,7 @@ export default function Home() {
                   typingSpeed={80}
                   deletingSpeed={40}
                   pauseTime={2500}
-                />
+                /></span>
               </h1>
             </div>
             {/* <p className="text-xl md:text-2xl text-muted mb-8 max-w-3xl mx-auto text-balance">
@@ -69,7 +69,7 @@ export default function Home() {
               I'm also a Game Developer with {gameDevYears}+ years creating interactive experiences with Unity and Godot, 
               bringing technical expertise and creativity to every project.
             </p> */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 mt-8">
               <Link
                 href="#projects"
                 className="px-8 py-4 bg-accent hover:bg-accent-dark text-white rounded-lg font-medium transition-colors"
