@@ -1,30 +1,15 @@
 import Navigation from './components/Navigation';
 import SocialLinks from './components/SocialLinks';
 import TypewriterText from './components/TypewriterText';
+import FeaturedProjects from './components/FeaturedProjects';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getWebMobileYears, getGameDevYears } from './utils/calculateExperience';
-import { ArrowRight, CheckCircle2, Laptop, Gamepad2, FileDown } from 'lucide-react';
+import { Laptop, Gamepad2, FileDown } from 'lucide-react';
 
 export default function Home() {
   const webMobileYears = getWebMobileYears();
   const gameDevYears = getGameDevYears();
-
-  const featuredProjects = [
-    {
-      title: 'Master Cat Games',
-      description: 'Collection of game projects built with Unity and Godot. Interactive experiences showcasing game mechanics and design.',
-      link: 'https://mastercatgames.vercel.app/',
-      tags: ['Unity', 'Godot', 'Game Design'],
-    },
-    {
-      title: 'Unreleased Projects',
-      description: 'Work-in-progress game projects exploring new mechanics and creative concepts.',
-      link: '#',
-      tags: ['Unity', 'Godot', 'Prototyping'],
-      comingSoon: true,
-    },
-  ];
 
   return (
     <>
@@ -86,6 +71,9 @@ export default function Home() {
             <SocialLinks />
           </div>
         </section>
+
+        {/* Featured Projects Section */}
+        <FeaturedProjects />
 
         {/* About Section */}
         <section id="about" className="py-24 px-6 bg-zinc-50 dark:bg-zinc-900/30">
@@ -156,70 +144,6 @@ export default function Home() {
                 className="px-8 py-4 border-2 border-accent text-accent hover:bg-accent hover:text-white rounded-lg font-medium transition-colors"
               >
                 Get in Touch
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Projects Section */}
-        <section id="projects" className="py-24 px-6">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold mb-4 text-center">Featured Projects</h2>
-            <p className="text-muted text-center mb-12 max-w-2xl mx-auto">
-              A showcase of my game development work, featuring interactive experiences built with Unity and Godot.
-            </p>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-              {featuredProjects.map((project, index) => (
-                <div
-                  key={index}
-                  className="group relative p-8 bg-zinc-50 dark:bg-zinc-900/30 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all hover:shadow-xl"
-                >
-                  {project.comingSoon && (
-                    <div className="absolute top-4 right-4 px-3 py-1 bg-accent/10 text-accent text-xs font-medium rounded-full">
-                      Coming Soon
-                    </div>
-                  )}
-                  <h3 className="text-2xl font-bold mb-3 group-hover:text-accent transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted mb-6 leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tags.map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        className="px-3 py-1 bg-accent/10 text-accent text-sm rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  {!project.comingSoon && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-accent hover:text-accent-dark font-medium"
-                    >
-                      View Project
-                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                    </a>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            <div className="text-center mt-12">
-              <p className="text-muted mb-6">
-                Want to see my professional software development experience?
-              </p>
-              <Link
-                href="/work-experience"
-                className="inline-block px-8 py-4 border-2 border-accent text-accent hover:bg-accent hover:text-white rounded-lg font-medium transition-colors"
-              >
-                View Work Experience
               </Link>
             </div>
           </div>
