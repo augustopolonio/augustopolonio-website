@@ -1,6 +1,6 @@
 'use client';
 
-import { Linkedin, Twitter, Instagram, Youtube, Link as LinkIcon } from 'lucide-react';
+import { Linkedin, Twitter, Instagram, Youtube, Link as LinkIcon, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function SocialLinks() {
@@ -16,6 +16,11 @@ export default function SocialLinks() {
       icon: <Twitter className="w-5 h-5" />,
     },
     {
+      name: 'GitHub',
+      url: 'https://github.com/augustopolonio',
+      icon: <Github className="w-5 h-5" />,
+    },
+    {
       name: 'Instagram',
       url: 'https://www.instagram.com/gutopolonio',
       icon: <Instagram className="w-5 h-5" />,
@@ -29,7 +34,7 @@ export default function SocialLinks() {
       name: 'Linktree',
       url: 'https://linktree.com/augustopolonio',
       icon: <LinkIcon className="w-5 h-5" />,
-    },
+    }
   ];
 
   const containerVariants = {
