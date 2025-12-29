@@ -8,6 +8,7 @@ interface TypewriterTextProps {
   deletingSpeed?: number;
   pauseTime?: number;
   className?: string;
+  onTextChange?: (index: number) => void;
 }
 
 export default function TypewriterText({
@@ -16,11 +17,18 @@ export default function TypewriterText({
   deletingSpeed = 50,
   pauseTime = 2000,
   className = '',
+  onTextChange,
 }: TypewriterTextProps) {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (onTextChange && !isDeleting && currentText === texts[currentTextIndex]) {
+      onTextChange(currentTextIndex);
+    }
+  }, [currentTextIndex, currentText, isDeleting, texts, onTextChange]);
 
   useEffect(() => {
     const fullText = texts[currentTextIndex];

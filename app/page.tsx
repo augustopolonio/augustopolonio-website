@@ -1,10 +1,9 @@
 import Navigation from './components/Navigation';
-import SocialLinks from './components/SocialLinks';
-import TypewriterText from './components/TypewriterText';
+import HeroSection from './components/HeroSection';
 import FeaturedProjects from './components/FeaturedProjects';
-import FlipAvatar from './components/FlipAvatar';
 import ScrollReveal from './components/ScrollReveal';
 import StaggerChildren, { StaggerItem } from './components/StaggerChildren';
+import SocialLinks from './components/SocialLinks';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getWebMobileYears, getGameDevYears } from './utils/calculateExperience';
@@ -20,50 +19,7 @@ export default function Home() {
       
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="min-h-screen flex items-center justify-center px-6 pt-20">
-          <div className="max-w-4xl mx-auto text-center animate-fadeIn">
-            <FlipAvatar />
-            <div className="min-h-[180px] md:min-h-[220px] flex items-center justify-center">
-              <h1 className="text-5xl md:text-7xl font-bold text-balance text-center">
-                Hi, I'm <span className="inline-block min-w-[280px] md:min-w-[700px] text-center"><TypewriterText 
-                  texts={[
-                    'Augusto Polonio',
-                    'a Game Developer',
-                    'a Software Developer',
-                    'Augusto Polonio'
-                  ]}
-                  className="gradient-text"
-                  typingSpeed={80}
-                  deletingSpeed={40}
-                  pauseTime={2500}
-                /></span>
-              </h1>
-            </div>
-            {/* <p className="text-xl md:text-2xl text-muted mb-8 max-w-3xl mx-auto text-balance">
-              Senior Software Developer & Game Developer
-            </p> */}
-            {/* <p className="text-lg text-muted/80 mb-12 max-w-3xl mx-auto leading-relaxed">
-              I'm a Senior Software Developer with {webMobileYears}+ years of experience building web and mobile applications using JavaScript and .NET. 
-              I'm also a Game Developer with {gameDevYears}+ years creating interactive experiences with Unity and Godot, 
-              bringing technical expertise and creativity to every project.
-            </p> */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 mt-8">
-              <Link
-                href="#projects"
-                className="px-8 py-4 bg-accent hover:bg-accent-dark text-white rounded-lg font-medium transition-colors"
-              >
-                View Projects
-              </Link>
-              <Link
-                href="#about"
-                className="px-8 py-4 border-2 border-accent text-accent hover:bg-accent hover:text-white rounded-lg font-medium transition-colors"
-              >
-                About Me
-              </Link>
-            </div>
-            <SocialLinks />
-          </div>
-        </section>
+        <HeroSection />
 
         {/* Featured Projects Section */}
         <FeaturedProjects />
