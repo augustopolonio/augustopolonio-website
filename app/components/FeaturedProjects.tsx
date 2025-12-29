@@ -113,7 +113,10 @@ export default function FeaturedProjects() {
                     </span>
                   ))}
                   {game.tags.length > 3 && (
-                    <span className="px-2 py-1 bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-xs rounded-full">
+                    <span 
+                      className="px-2 py-1 bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-xs rounded-full cursor-help"
+                      title={game.tags.slice(3).join(', ')}
+                    >
                       +{game.tags.length - 3} more
                     </span>
                   )}
