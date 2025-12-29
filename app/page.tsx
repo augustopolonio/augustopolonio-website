@@ -1,6 +1,7 @@
 import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
 import InteractiveTerminal from './components/InteractiveTerminal';
+import PortfolioGame from './components/PortfolioGame';
 import FeaturedProjects from './components/FeaturedProjects';
 import ScrollReveal from './components/ScrollReveal';
 import StaggerChildren, { StaggerItem } from './components/StaggerChildren';
@@ -24,6 +25,9 @@ export default function Home() {
 
         {/* Interactive Terminal Section */}
         <InteractiveTerminal />
+
+        {/* Portfolio Game Section */}
+        <PortfolioGame />
 
         {/* Featured Projects Section */}
         <FeaturedProjects />
