@@ -30,7 +30,17 @@ export default function PortfolioGame() {
   const [showInstructions, setShowInstructions] = useState(true);
   const [dialogData, setDialogData] = useState<DialogData | null>(null);
   const [isMaximized, setIsMaximized] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [joystickPos, setJoystickPos] = useState({ x: 0, y: 0 });
+  const [isJoystickActive, setIsJoystickActive] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const joystickBaseRef = useRef<HTMLDivElement>(null);
+  const activeKeysRef = useRef<Set<string>>(new Set());
   const router = useRouter();
+
+  useEffect(() => {
+    setIsMobile(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+  }, []);
   const gameLoopRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
@@ -42,8 +52,8 @@ export default function PortfolioGame() {
 
     // Game state
     const player = {
-      x: 250,
-      y: 250,
+      x: 320,
+      y: 240,
       width: 24,
       height: 24,
       speed: 2,
@@ -57,10 +67,10 @@ export default function PortfolioGame() {
       { 
         id: 'projects', 
         name: 'PROJECTS', 
-        x: 100, 
-        y: 50, 
-        width: 120, 
-        height: 100, 
+        x: 80, 
+        y: 40, 
+        width: 130, 
+        height: 85, 
         color: '#22c55e',
         description: 'Explore my game projects from Master Cat Games including Oliver the Octopus and more!',
         link: '#projects' 
@@ -68,10 +78,10 @@ export default function PortfolioGame() {
       { 
         id: 'experience', 
         name: 'EXPERIENCE', 
-        x: 280, 
-        y: 50, 
-        width: 120, 
-        height: 100, 
+        x: 430, 
+        y: 40, 
+        width: 130, 
+        height: 85, 
         color: '#f59e0b',
         description: '10+ years in software development and game creation. See my professional journey.',
         link: '/work-experience' 
@@ -79,10 +89,10 @@ export default function PortfolioGame() {
       { 
         id: 'about', 
         name: 'ABOUT ME', 
-        x: 100, 
-        y: 200, 
-        width: 120, 
-        height: 100, 
+        x: 80, 
+        y: 180, 
+        width: 130, 
+        height: 85, 
         color: '#3b82f6',
         description: 'Learn about my transition from software engineering to game development.',
         link: '#about' 
@@ -90,10 +100,10 @@ export default function PortfolioGame() {
       { 
         id: 'contact', 
         name: 'CONTACT', 
-        x: 280, 
-        y: 200, 
-        width: 120, 
-        height: 100, 
+        x: 430, 
+        y: 180, 
+        width: 130, 
+        height: 85, 
         color: '#ec4899',
         description: 'Connect with me on LinkedIn, Twitter, or other social platforms!',
         link: '#contact' 
@@ -101,10 +111,10 @@ export default function PortfolioGame() {
       { 
         id: 'terminal', 
         name: 'TERMINAL', 
-        x: 190, 
-        y: 350, 
-        width: 120, 
-        height: 80, 
+        x: 255, 
+        y: 335, 
+        width: 130, 
+        height: 75, 
         color: '#14b8a6',
         description: 'Navigate my portfolio using a retro terminal interface. Type commands!',
         action: () => {
@@ -161,7 +171,7 @@ export default function PortfolioGame() {
           Math.pow(player.x + player.width / 2 - (doorX + 15), 2) + 
           Math.pow(player.y + player.height / 2 - doorY, 2)
         );
-        if (distance < 25) {
+        if (distance < 50) {
           return room;
         }
       }
@@ -292,6 +302,94 @@ export default function PortfolioGame() {
     };
   }, [isPlaying, router]);
 
+  // Joystick handlers
+  const handleJoystickMove = (clientX: number, clientY: number) => {
+    if (!joystickBaseRef.current) return;
+    
+    const rect = joystickBaseRef.current.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    
+    let deltaX = clientX - centerX;
+    let deltaY = clientY - centerY;
+    
+    // Limit joystick movement to base radius
+    const maxDistance = 40;
+    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+    
+    if (distance > maxDistance) {
+      deltaX = (deltaX / distance) * maxDistance;
+      deltaY = (deltaY / distance) * maxDistance;
+    }
+    
+    setJoystickPos({ x: deltaX, y: deltaY });
+    
+    // Determine which keys to press based on joystick position
+    const threshold = 15;
+    const newKeys = new Set<string>();
+    
+    if (deltaY < -threshold) newKeys.add('ArrowUp');
+    if (deltaY > threshold) newKeys.add('ArrowDown');
+    if (deltaX < -threshold) newKeys.add('ArrowLeft');
+    if (deltaX > threshold) newKeys.add('ArrowRight');
+    
+    // Release keys that are no longer active
+    activeKeysRef.current.forEach(key => {
+      if (!newKeys.has(key)) {
+        window.dispatchEvent(new KeyboardEvent('keyup', { key }));
+      }
+    });
+    
+    // Press new keys
+    newKeys.forEach(key => {
+      if (!activeKeysRef.current.has(key)) {
+        window.dispatchEvent(new KeyboardEvent('keydown', { key }));
+      }
+    });
+    
+    activeKeysRef.current = newKeys;
+  };
+
+  const handleJoystickStart = () => {
+    setIsJoystickActive(true);
+    setIsDragging(true);
+  };
+
+  const handleJoystickEnd = () => {
+    setIsJoystickActive(false);
+    setIsDragging(false);
+    setJoystickPos({ x: 0, y: 0 });
+    
+    // Release all active keys
+    activeKeysRef.current.forEach(key => {
+      window.dispatchEvent(new KeyboardEvent('keyup', { key }));
+    });
+    activeKeysRef.current.clear();
+  };
+
+  const onTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    const touch = e.touches[0];
+    handleJoystickMove(touch.clientX, touch.clientY);
+  };
+
+  const onMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isDragging) {
+      handleJoystickMove(e.clientX, e.clientY);
+    }
+  };
+
+  // Global mouse up handler
+  useEffect(() => {
+    const handleGlobalMouseUp = () => {
+      if (isDragging) {
+        handleJoystickEnd();
+      }
+    };
+    
+    window.addEventListener('mouseup', handleGlobalMouseUp);
+    return () => window.removeEventListener('mouseup', handleGlobalMouseUp);
+  }, [isDragging]);
+
   const handleDialogAction = () => {
     if (!dialogData) return;
 
@@ -348,9 +446,19 @@ export default function PortfolioGame() {
                 Start Game
               </button>
               <div className="mt-8 space-y-2 text-sm text-muted">
-                <div>🎮 Controls: WASD or Arrow Keys to move</div>
-                <div>⌨️ Press SPACE near doors to interact</div>
-                <div>🚪 Each room links to a portfolio section</div>
+                {isMobile ? (
+                  <>
+                    <div>🕹️ Use JOYSTICK to move around</div>
+                    <div>👆 Press ACTION button near doors</div>
+                    <div>🚪 Each room links to a portfolio section</div>
+                  </>
+                ) : (
+                  <>
+                    <div>🎮 Controls: WASD or Arrow Keys to move</div>
+                    <div>⌨️ Press SPACE near doors to interact</div>
+                    <div>🚪 Each room links to a portfolio section</div>
+                  </>
+                )}
               </div>
             </div>
           ) : (
@@ -386,14 +494,58 @@ export default function PortfolioGame() {
                     </button>
                   </div>
                 </div>
-                <div className="relative">
+                <div className="relative flex items-center justify-center">
                   <canvas
                     ref={canvasRef}
-                    width={500}
-                    height={500}
-                    className={`mx-auto bg-gray-950 ${isMaximized ? 'w-full h-[calc(100vh-120px)]' : 'w-full max-w-[500px]'}`}
+                    width={640}
+                    height={580}
+                    className={`bg-gray-950 ${isMaximized ? 'max-h-[calc(100vh-120px)] max-w-full' : 'w-full max-w-[640px]'}`}
                     style={{ imageRendering: 'pixelated' }}
                   />
+                  
+                  {/* Mobile Controls - Inside Canvas at bottom */}
+                  {isMobile && (
+                    <div className="absolute bottom-2 left-0 right-0 flex justify-between items-end px-6">
+                      {/* Joystick */}
+                      <div 
+                        ref={joystickBaseRef}
+                        className="w-24 h-24 bg-gray-800/70 rounded-full border-4 border-gray-700/90 shadow-lg relative cursor-pointer"
+                        onTouchStart={handleJoystickStart}
+                        onTouchMove={onTouchMove}
+                        onTouchEnd={handleJoystickEnd}
+                        onMouseDown={handleJoystickStart}
+                        onMouseMove={onMouseMove}
+                        style={{ touchAction: 'none' }}
+                      >
+                        {/* Joystick stick */}
+                        <div 
+                          className="absolute top-1/2 left-1/2 w-10 h-10 bg-gray-600 rounded-full border-3 border-gray-400 shadow-xl transition-transform pointer-events-none"
+                          style={{
+                            transform: `translate(calc(-50% + ${joystickPos.x}px), calc(-50% + ${joystickPos.y}px))`,
+                            backgroundColor: isJoystickActive ? '#4b5563' : '#6b7280'
+                          }}
+                        >
+                          <div className="absolute inset-1.5 bg-gray-500 rounded-full"></div>
+                        </div>
+                      </div>
+                      
+                      {/* Action Button */}
+                      <button
+                        onTouchStart={() => {
+                          const event = new KeyboardEvent('keydown', { key: ' ' });
+                          window.dispatchEvent(event);
+                        }}
+                        onMouseDown={() => {
+                          const event = new KeyboardEvent('keydown', { key: ' ' });
+                          window.dispatchEvent(event);
+                        }}
+                        className="w-20 h-20 bg-accent/90 rounded-full flex flex-col items-center justify-center text-white font-['Press_Start_2P',_monospace] text-[9px] shadow-lg active:bg-accent-dark leading-relaxed select-none cursor-pointer"
+                        style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none', touchAction: 'manipulation' }}
+                      >
+                        <span>ACTION</span>
+                      </button>
+                    </div>
+                  )}
                   
                   {/* Dialog overlay */}
                   <AnimatePresence>
@@ -451,9 +603,19 @@ export default function PortfolioGame() {
                     <div className="flex items-start justify-between">
                       <div className="space-y-2 text-sm">
                         <div className="font-bold text-accent font-['Press_Start_2P',_monospace] text-[10px] mb-3">HOW TO PLAY:</div>
-                        <div>• Move with <kbd className="px-2 py-1 bg-gray-800 rounded text-xs font-['Press_Start_2P',_monospace]">WASD</kbd> or <kbd className="px-2 py-1 bg-gray-800 rounded text-xs font-['Press_Start_2P',_monospace]">ARROWS</kbd></div>
-                        <div>• Walk to the colored rooms</div>
-                        <div>• Press <kbd className="px-2 py-1 bg-gray-800 rounded text-xs font-['Press_Start_2P',_monospace]">SPACE</kbd> near doors</div>
+                        {isMobile ? (
+                          <>
+                            <div>• Use the <strong>JOYSTICK</strong> to move around</div>
+                            <div>• Walk to the colored rooms</div>
+                            <div>• Press <strong>ACTION</strong> button near doors</div>
+                          </>
+                        ) : (
+                          <>
+                            <div>• Move with <kbd className="px-2 py-1 bg-gray-800 rounded text-xs font-['Press_Start_2P',_monospace]">WASD</kbd> or <kbd className="px-2 py-1 bg-gray-800 rounded text-xs font-['Press_Start_2P',_monospace]">ARROWS</kbd></div>
+                            <div>• Walk to the colored rooms</div>
+                            <div>• Press <kbd className="px-2 py-1 bg-gray-800 rounded text-xs font-['Press_Start_2P',_monospace]">SPACE</kbd> near doors</div>
+                          </>
+                        )}
                       </div>
                       <button
                         onClick={() => setShowInstructions(false)}
