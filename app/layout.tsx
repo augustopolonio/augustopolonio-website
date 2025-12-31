@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     description: "Senior Software Developer transitioning into game development. 13+ years of experience in web/mobile development, now creating interactive experiences with Unity and Godot.",
     images: ['/augusto-polonio-avatar.png'],
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
+  },
 };
 
 export default function RootLayout({
