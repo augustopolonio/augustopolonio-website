@@ -4,95 +4,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getWebMobileYears } from '../utils/calculateExperience';
 import { ArrowLeft, CheckCircle2 } from 'lucide-react';
+import experiencesData from '@/public/data/experiences.json';
 
 export default function WorkExperience() {
   const webMobileYears = getWebMobileYears();
   
-  const experiences = [
-    {
-      company: 'Quattrus',
-      location: 'Porto Alegre, BR (Remote)',
-      title: 'Tech Lead & Senior Full Stack Software Engineer',
-      period: 'FEB 2022 - PRESENT',
-      description: 'Collaborated with architects and engineers to implement new features in SaaS ERP products.',
-      highlights: [
-        'Mentored junior and core developers, guiding them in writing clean code to ensure easy maintenance',
-        'Conducted thorough code reviews to ensure code quality and adherence to best practices with a focus on SOLID principles',
-        'Increased application performance by optimizing code and improving system architecture',
-        'Helped Product Owner and Scrum Master to find the best solutions for the development process and applications',
-        'Built and maintained CI/CD pipelines for staging and production environments, ensuring reliable and efficient deployments',
-        'Migrated legacy applications to the new tech stack',
-      ],
-      technologies: ['React', 'Node.js', 'TypeScript', 'Sencha ExtJS', 'JavaScript', '.NET', 'SQL Server'],
-    },
-    {
-      company: 'Master Cat Games',
-      location: 'Ivoti, BR',
-      title: 'Game Developer (Self-Employed)',
-      period: 'MAR 2020 - PRESENT',
-      description: 'Developed indie games for mobile and PC from planning to post-production using Unity and Godot.',
-      highlights: [
-        'Won 2nd place with the game Oliver the Octopus at LudiJam #01',
-        'Utilized GitHub and Bitbucket to maintain organized project repositories',
-        'Worked using tools like Trello and Notion to optimize the flow of developments',
-      ],
-      technologies: ['Unity', 'C#', 'Godot', 'GDScript'],
-    },
-    {
-      company: 'Qualitin',
-      location: 'Porto Alegre, BR (Remote)',
-      title: 'Mid/Senior Full Stack Developer',
-      period: 'JAN 2016 - FEB 2022',
-      description: 'Analyzed, planned, coded, tested, and documented web applications (SaaS ERP systems) for the quality management field.',
-      highlights: [
-        'Introduced best coding practices to promote easy maintenance and improve performance',
-        'Redesigned UI and UX of some projects',
-        'Created an API for the company\'s main software',
-        'Developed, maintained, and published new features for Android and iOS mobile applications',
-        'Collaborated with the marketing team to integrate RD Station, enhancing digital marketing automation and management',
-        'Integrated the e-commerce system Vindi with web applications',
-        'Enhanced push notifications of mobile apps, integrating with OneSignal',
-        'Upgraded Sencha Touch applications, as well as Cordova versions to increase compatibility',
-        'Managed the workflow and documented all the processes using JetBrains YouTrack and after DevOps',
-      ],
-      technologies: ['.NET', 'C#', 'HTML', 'CSS', 'JavaScript', 'jQuery', 'JSON', 'SQL Server', 'Web Services', 'APIs', 'Sencha ExtJS', 'Cordova', 'Swagger', 'LINQ', 'NHibernate'],
-    },
-    {
-      company: 'While Tech',
-      location: 'Porto Alegre, BR (Remote)',
-      title: 'Game Developer',
-      period: 'MAR 2017 - JUN 2017',
-      description: 'Developed an educational mobile game for Android called Color Melody Piano.',
-      highlights: [],
-      technologies: ['Unity', 'C#', 'Photoshop', 'Illustrator'],
-    },
-    {
-      company: 'Sollus',
-      location: 'Porto Alegre, BR',
-      title: 'Full Stack Developer',
-      period: 'OCT 2015 - JAN 2016',
-      description: 'Planned and built a refund software for the financial area.',
-      highlights: [
-        'Developed new features for the company\'s main software',
-        'Worked in maintenance of web pages and CRM software',
-        'Analyzed and worked in data integration of legacy systems, adapting to the business model',
-      ],
-      technologies: ['ASP.NET MVC', 'C#', 'PHP', 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'SQL Server', 'Web Services', 'LINQ', 'NHibernate'],
-    },
-    {
-      company: 'Qualitin',
-      location: 'Porto Alegre, BR',
-      title: 'Full Stack Developer',
-      period: 'JUL 2013 - SEP 2015',
-      description: 'Improved the front-end of the company\'s main software, migrating the Microsoft Silverlight and the old ASP.NET pages to Sencha ExtJS. This change allowed the company to close a deal with a new client in a short-time development.',
-      highlights: [
-        'Developed new login for all applications, improving the security and UI',
-        'Organized and executed tasks, working with Scrum and Pair Programming as an agile method',
-        'Solved technical problems of sprint backlog',
-      ],
-      technologies: ['ASP.NET', 'C#', 'HTML', 'CSS', 'JavaScript', 'Sencha ExtJS', 'SQL Server', 'LINQ', 'NHibernate'],
-    },
-  ];
+  const experiences = experiencesData;
 
   return (
     <>

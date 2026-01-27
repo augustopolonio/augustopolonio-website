@@ -6,6 +6,7 @@ import { ExternalLink, ArrowRight } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import ScrollReveal from './ScrollReveal';
+import gamesData from '@/public/data/games.json';
 
 interface Game {
   id: number;
@@ -19,68 +20,7 @@ interface Game {
 }
 
 export default function FeaturedProjects() {
-  const games: Game[] = [
-    {
-      id: 0,
-      title: "Alone at the Fast Food",
-      description: "A work-in-progress horror survival game set in an abandoned fast food restaurant. Navigate through dark corridors, solve puzzles, and uncover the mystery behind the restaurant's closure.",
-      status: "in-development",
-      tags: ["Horror", "Survival", "Puzzle", "Single Player"],
-      image: '/game_covers/Alone_at_the_fast_food.png',
-      link: '/unreleased-projects',
-      engine: 'godot',
-    },
-    {
-      id: 1,
-      title: "Oliver the Octopus",
-      description: "A platform game based on crates with different mechanics.",
-      status: "released",
-      tags: ["Adventure", "Platformer", "2.5D", "Single Player", "Casual"],
-      image: '/game_covers/Oliver_the_octopus.jpg',
-      link: 'https://mastercatgames.itch.io/oliver-the-octopus',
-      engine: 'unity',
-    },
-    {
-      id: 2,
-      title: "Tinturaria",
-      description: "A game about delivering as many colored boxes with the right color within a time limit.",
-      status: "released",
-      tags: ["Puzzle", "Casual", "Time Management", "Single Player", "Color Matching", "Mobile"],
-      image: '/game_covers/Tinturaria.png',
-      link: 'https://play.google.com/store/apps/details?id=com.mastercat.tinturaria',
-      engine: 'unity',
-    },
-    {
-      id: 3,
-      title: "Flappy Black Cat",
-      description: "Based on the classic Flappy Bird game, featuring a black cat navigating through obstacles in a dark environment.",
-      status: "released",
-      tags: ["Arcade", "Casual", "Endless Runner", "Single Player", "Mobile"],
-      image: '/game_covers/Flappy_Black_Cat.png',
-      link: 'https://play.google.com/store/apps/details?id=com.mastercat.flappyblackcat',
-      engine: 'unity',
-    },
-    {
-      id: 4,
-      title: "Crazy Stack Blocks",
-      description: "A puzzle game where you have to stack as many blocks as you can.",
-      status: "released",
-      tags: ["Puzzle", "Casual", "Stacking", "Single Player", "Mobile", "Addictive", "Family Friendly", "Tetris-like"],
-      image: '/game_covers/Crazy_Stack_Blocks.png',
-      link: 'https://mastercatgames.itch.io/crazy-stack-blocks',
-      engine: 'unity',
-    },
-    {
-      id: 5,
-      title: "Running Food",
-      description: "An endless runner game where you Help Lucy defeat the Blubbers, an organization that threatens planet Earth forcing the habitants to only eat the world's fattest foods.",
-      status: "released",
-      tags: ["Endless Runner", "Casual", "Single Player", "Mobile", "Collecting", "Obstacles"],
-      image: '/game_covers/Running_Food.png',
-      link: 'https://play.google.com/store/apps/details?id=com.mastercat.runningfood',
-      engine: 'unity',
-    },
-  ];
+  const games: Game[] = gamesData as Game[];
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
