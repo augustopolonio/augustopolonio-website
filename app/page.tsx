@@ -27,7 +27,16 @@ export default function Home() {
         <InteractiveTerminal />
 
         {/* Portfolio Game Section */}
-        <PortfolioGame />
+        {/* <PortfolioGame /> */}
+        <h2 className="text-4xl font-bold mt-4 mb-4 text-center flex items-center justify-center gap-3">
+            <Gamepad2 className="w-10 h-10 text-accent" />
+            Explore My Portfolio
+          </h2>
+        <iframe
+          src="https://augustopolonio.github.io/portfolio-game-2d/"
+          className="w-full h-[500px] border-0"
+          title="Game"
+        />
 
         {/* Featured Projects Section */}
         <FeaturedProjects />
