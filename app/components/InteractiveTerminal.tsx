@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, KeyboardEvent } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import React from 'react';
+import { trackTerminalCommand } from '../utils/analytics';
 
 interface CommandOutput {
   command: string;
@@ -281,6 +282,9 @@ Type 'cat about_me.txt' to learn more!`,
 
     const [command, ...args] = trimmedCmd.split(' ');
     const commandFn = commands[command.toLowerCase()];
+
+    // Track the command in Google Analytics
+    trackTerminalCommand(trimmedCmd);
 
     let output: string | React.ReactNode;
     if (commandFn) {
