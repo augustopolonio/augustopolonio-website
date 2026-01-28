@@ -1,3 +1,5 @@
+'use client';
+
 import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
 import InteractiveTerminal from './components/InteractiveTerminal';
