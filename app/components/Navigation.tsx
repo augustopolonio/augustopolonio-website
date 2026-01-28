@@ -3,15 +3,30 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Menu, X, FileDown } from 'lucide-react';
+import { trackNavigation, trackResumeDownload } from '../utils/analytics';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleNavClick = (destination: string) => {
+    trackNavigation(destination);
+    setIsMenuOpen(false);
+  };
+
+  const handleResumeClick = () => {
+    trackResumeDownload();
+    setIsMenuOpen(false);
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="hover:opacity-80 transition-opacity">
+          <Link 
+            href="/" 
+            className="hover:opacity-80 transition-opacity"
+            onClick={() => trackNavigation('Home')}
+          >
             <div className="flex flex-col">
               <span className="text-xl font-bold">Augusto Polonio</span>
               <span className="text-xs text-muted">Senior Software & Game Developer</span>
@@ -20,16 +35,32 @@ export default function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/#projects" className="text-sm hover:text-accent transition-colors">
+            <Link 
+              href="/#projects" 
+              className="text-sm hover:text-accent transition-colors"
+              onClick={() => trackNavigation('Projects')}
+            >
               Projects
             </Link>
-            <Link href="/work-experience" className="text-sm hover:text-accent transition-colors">
+            <Link 
+              href="/work-experience" 
+              className="text-sm hover:text-accent transition-colors"
+              onClick={() => trackNavigation('Experience')}
+            >
               Experience
             </Link>
-            <Link href="/#about" className="text-sm hover:text-accent transition-colors">
+            <Link 
+              href="/#about" 
+              className="text-sm hover:text-accent transition-colors"
+              onClick={() => trackNavigation('About')}
+            >
               About
             </Link>
-            <Link href="/#contact" className="text-sm hover:text-accent transition-colors">
+            <Link 
+              href="/#contact" 
+              className="text-sm hover:text-accent transition-colors"
+              onClick={() => trackNavigation('Contact')}
+            >
               Contact
             </Link>
             <a
@@ -37,6 +68,7 @@ export default function Navigation() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 text-sm text-accent hover:text-accent-dark transition-colors"
+              onClick={handleResumeClick}
             >
               <FileDown className="w-4 h-4" />
               Resume
@@ -63,28 +95,28 @@ export default function Navigation() {
             <Link
               href="/#projects"
               className="text-sm hover:text-accent transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => handleNavClick('Projects')}
             >
               Projects
             </Link>
             <Link
               href="/work-experience"
               className="text-sm hover:text-accent transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => handleNavClick('Experience')}
             >
               Experience
             </Link>
             <Link
               href="/#about"
               className="text-sm hover:text-accent transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => handleNavClick('About')}
             >
               About
             </Link>
             <Link
               href="/#contact"
               className="text-sm hover:text-accent transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => handleNavClick('Contact')}
             >
               Contact
             </Link>
@@ -93,7 +125,7 @@ export default function Navigation() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 text-sm text-accent hover:text-accent-dark transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={handleResumeClick}
             >
               <FileDown className="w-4 h-4" />
               Resume

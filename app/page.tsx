@@ -10,6 +10,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getWebMobileYears, getGameDevYears } from './utils/calculateExperience';
 import { Laptop, Gamepad2, FileDown } from 'lucide-react';
+import { trackResumeDownload, trackContact, trackSocialClick } from './utils/analytics';
 
 export default function Home() {
   const webMobileYears = getWebMobileYears();
@@ -120,6 +121,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-accent hover:bg-accent-dark text-white rounded-lg font-medium transition-colors"
+                onClick={() => trackResumeDownload()}
               >
                 <FileDown className="w-5 h-5" />
                 Download Resume
@@ -127,6 +129,7 @@ export default function Home() {
               <Link
                 href="#contact"
                 className="px-8 py-4 border-2 border-accent text-accent hover:bg-accent hover:text-white rounded-lg font-medium transition-colors"
+                onClick={() => trackContact('Get in Touch Button')}
               >
                 Get in Touch
               </Link>
@@ -153,6 +156,7 @@ export default function Home() {
                 <a
                   href="https://www.linkedin.com/in/augustopolonio/"
                   target="_blank"
+                  onClick={() => trackSocialClick('LinkedIn', 'https://www.linkedin.com/in/augustopolonio/')}
                   rel="noopener noreferrer"
                   className="inline-block px-8 py-4 bg-accent hover:bg-accent-dark text-white rounded-lg font-medium transition-colors"
                 >

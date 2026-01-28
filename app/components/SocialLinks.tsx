@@ -2,6 +2,7 @@
 
 import { Linkedin, Twitter, Instagram, Youtube, Link as LinkIcon, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { trackSocialClick } from '../utils/analytics';
 
 export default function SocialLinks() {
   const socials = [
@@ -79,6 +80,7 @@ export default function SocialLinks() {
           variants={itemVariants}
           whileHover={{ scale: 1.2, rotate: 5 }}
           whileTap={{ scale: 0.9 }}
+          onClick={() => trackSocialClick(social.name, social.url)}
         >
           {social.icon}
         </motion.a>

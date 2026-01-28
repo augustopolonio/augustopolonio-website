@@ -7,6 +7,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import ScrollReveal from './ScrollReveal';
 import gamesData from '@/public/data/games.json';
+import { trackProjectClick, trackExternalLink } from '../utils/analytics';
 
 interface Game {
   id: number;
@@ -60,6 +61,7 @@ export default function FeaturedProjects() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-accent hover:text-accent-dark font-medium inline-flex items-center gap-1"
+              onClick={() => trackExternalLink('https://mastercatgames.vercel.app/', 'Master Cat Games - Header')}
             >
               Master Cat Games
               <ExternalLink className="w-4 h-4" />
@@ -81,6 +83,11 @@ export default function FeaturedProjects() {
               ? { href: game.link }
               : { href: game.link, target: "_blank", rel: "noopener noreferrer" };
             
+            const handleProjectClick = () => {
+              const action = game.status === 'in-development' ? 'view' : 'demo';
+              trackProjectClick(game.title, action);
+            };
+            
             return (
               <motion.div
                 key={game.id}
@@ -91,6 +98,7 @@ export default function FeaturedProjects() {
                 <CardWrapper
                   {...cardProps}
                   className="block group relative bg-zinc-50 dark:bg-zinc-900/30 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:border-accent transition-all hover:shadow-xl overflow-hidden h-full"
+                  onClick={handleProjectClick}
                 >
                 {game.status === 'in-development' && (
                   <div className="absolute top-4 right-4 z-10 px-3 py-1.5 bg-accent text-white text-xs font-semibold rounded-full shadow-lg">
@@ -155,6 +163,7 @@ export default function FeaturedProjects() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 bg-accent hover:bg-accent-dark text-white rounded-lg font-medium transition-colors"
+              onClick={() => trackExternalLink('https://mastercatgames.vercel.app/', 'Master Cat Games - CTA')}
             >
               Visit Master Cat Games
               <ExternalLink className="w-5 h-5" />
@@ -162,6 +171,7 @@ export default function FeaturedProjects() {
             <Link
               href="/unreleased-projects"
               className="inline-flex items-center gap-2 px-8 py-4 border-2 border-accent text-accent hover:bg-accent hover:text-white rounded-lg font-medium transition-colors"
+              onClick={() => trackProjectClick('Unreleased Projects', 'view')}
             >
               View Unreleased Projects
               <ArrowRight className="w-5 h-5" />
