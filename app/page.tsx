@@ -34,8 +34,10 @@ export default function Home() {
           </h2>
         <iframe
           src="https://augustopolonio.github.io/portfolio-game-2d/"
-          className="w-full h-[500px] border-0"
-          title="Game"
+          allow="analytics; performance-observer"
+          sandbox="allow-scripts allow-same-origin"
+          width="100%"
+          height="600px"
         />
 
         {/* Featured Projects Section */}
