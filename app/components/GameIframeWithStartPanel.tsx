@@ -36,6 +36,29 @@ export default function GameIframeWithStartPanel() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
         >
+          <h2 className="text-4xl font-bold mb-12 text-center flex items-center justify-center gap-3">
+            <Gamepad2 className="w-10 h-10 text-accent" />
+            Explore this portfolio playing a game
+          </h2>
+
+          <div className="mb-8">
+            <h3 className="text-xl font-bold mb-4 text-center text-accent">How to play</h3>
+            <div className="flex justify-center">
+              <div className="text-sm text-muted space-y-2">
+                {isMobile ? (
+                  <>
+                    <div>🕹️ Use on-screen controls to move and interact</div>
+                  </>
+                ) : (
+                  <>
+                    <div>🎮 WASD or Arrow Keys to move</div>
+                    <div>⌨️ E, Space or Enter to interact</div>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+
           <div className="relative w-full" style={{ height: '600px' }}>
             {/* Video Preview - visible when start panel is shown */}
             {showStartPanel && (
@@ -74,37 +97,21 @@ export default function GameIframeWithStartPanel() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="absolute inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center"
+                  className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center"
                   style={{ zIndex: 10 }}
                 >
                   <div className="text-center px-8">
                     <Gamepad2 className="w-24 h-24 text-accent mx-auto mb-6 drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]" />
-                    <h3 className="text-3xl font-bold mb-4 text-white font-['Press_Start_2P',monospace] leading-relaxed drop-shadow-lg">
+                    <h3 className="text-3xl font-bold mb-8 text-white font-['Press_Start_2P',monospace] leading-relaxed drop-shadow-lg">
                       PORTFOLIO<br/>ADVENTURE
                     </h3>
-                    <p className="text-gray-300 mb-8 max-w-md mx-auto text-sm leading-relaxed">
-                      Play this retro-style mini-game to navigate through my portfolio.
-                    </p>
                     <button
                       onClick={handlePlayGame}
                       className="px-10 py-5 bg-accent hover:bg-accent-dark text-white rounded-lg font-['Press_Start_2P',monospace] text-sm transition-all transform hover:scale-105 inline-flex items-center gap-3 shadow-xl hover:shadow-2xl hover:shadow-accent/50"
                     >
                       <Gamepad2 className="w-6 h-6" />
-                      PLAY GAME!
+                      PLAY NOW!
                     </button>
-                    <div className="mt-8 space-y-2 text-xs text-gray-400 font-mono">
-                      {isMobile ? (
-                        <>
-                          <div>🕹️ Use on-screen controls to move</div>
-                          <div>👆 Tap buttons to interact</div>
-                        </>
-                      ) : (
-                        <>
-                          <div>🎮 WASD or Arrow Keys to move</div>
-                          <div>⌨️ SPACE to interact</div>
-                        </>
-                      )}
-                    </div>
                   </div>
                 </motion.div>
               )}
