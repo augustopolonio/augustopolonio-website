@@ -27,6 +27,7 @@ interface DialogData {
 export default function PortfolioGame() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [showStartPanel, setShowStartPanel] = useState(true);
   const [showInstructions, setShowInstructions] = useState(true);
   const [dialogData, setDialogData] = useState<DialogData | null>(null);
   const [isMaximized, setIsMaximized] = useState(false);
@@ -44,7 +45,8 @@ export default function PortfolioGame() {
   const gameLoopRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
-    if (!isPlaying || !canvasRef.current) return;
+    // Always start the game loop when component mounts to show game behind the panel
+    if (!canvasRef.current) return;
 
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
@@ -300,7 +302,7 @@ export default function PortfolioGame() {
         cancelAnimationFrame(gameLoopRef.current);
       }
     };
-  }, [isPlaying, router]);
+  }, [router]);
 
   // Joystick handlers
   const handleJoystickMove = (clientX: number, clientY: number) => {
@@ -427,84 +429,97 @@ export default function PortfolioGame() {
             Play this retro-style mini-game to navigate through my portfolio. Walk around and enter different rooms!
           </p>
 
-          {!isPlaying ? (
-            <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 border-2 border-accent/30 rounded-lg p-8 text-center">
-              <Gamepad2 className="w-20 h-20 text-accent mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-4">Portfolio Adventure</h3>
-              <p className="text-muted mb-6 max-w-2xl mx-auto">
-                Navigate through different rooms to explore my portfolio sections. 
-                Each room represents a different area - Projects, Experience, About Me, and more!
-              </p>
-              <button
-                onClick={() => {
-                  setIsPlaying(true);
-                  setShowInstructions(true);
-                }}
-                className="px-8 py-4 bg-accent hover:bg-accent-dark text-white rounded-lg font-medium transition-colors inline-flex items-center gap-2"
-              >
-                <Gamepad2 className="w-5 h-5" />
-                Start Game
-              </button>
-              <div className="mt-8 space-y-2 text-sm text-muted">
-                {isMobile ? (
-                  <>
-                    <div>🕹️ Use JOYSTICK to move around</div>
-                    <div>👆 Press ACTION button near doors</div>
-                    <div>🚪 Each room links to a portfolio section</div>
-                  </>
-                ) : (
-                  <>
-                    <div>🎮 Controls: WASD or Arrow Keys to move</div>
-                    <div>⌨️ Press SPACE near doors to interact</div>
-                    <div>🚪 Each room links to a portfolio section</div>
-                  </>
-                )}
-              </div>
-            </div>
-          ) : (
-            <div className="relative">
-              <div 
-                className={`bg-gray-900 rounded-lg shadow-2xl overflow-hidden border-4 border-accent transition-all ${
-                  isMaximized ? 'fixed inset-4 z-50' : ''
-                }`}
-                style={{ imageRendering: 'pixelated' }}
-              >
-                <div className="bg-gray-800 px-4 py-2 flex items-center justify-between border-b-4 border-gray-700">
-                  <div className="flex items-center gap-3">
-                    <Gamepad2 className="w-5 h-5 text-accent" />
-                    <span className="text-sm text-gray-300 font-['Press_Start_2P',_monospace] text-[10px]">PORTFOLIO ADVENTURE</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => setIsMaximized(!isMaximized)}
-                      className="text-gray-400 hover:text-white transition-colors px-2"
-                      title={isMaximized ? "Minimize" : "Maximize"}
-                    >
-                      <span className="text-xl font-bold">{isMaximized ? '□' : '▢'}</span>
-                    </button>
-                    <button
-                      onClick={() => {
-                        setIsPlaying(false);
-                        setDialogData(null);
-                        setIsMaximized(false);
-                      }}
-                      className="text-gray-400 hover:text-white transition-colors"
-                    >
-                      <X className="w-5 h-5" />
-                    </button>
-                  </div>
+          <div className="relative">
+            <div 
+              className={`bg-gray-900 rounded-lg shadow-2xl overflow-hidden border-4 border-accent transition-all ${
+                isMaximized ? 'fixed inset-4 z-50' : ''
+              }`}
+              style={{ imageRendering: 'pixelated' }}
+            >
+              <div className="bg-gray-800 px-4 py-2 flex items-center justify-between border-b-4 border-gray-700">
+                <div className="flex items-center gap-3">
+                  <Gamepad2 className="w-5 h-5 text-accent" />
+                  <span className="text-sm text-gray-300 font-['Press_Start_2P',_monospace] text-[10px]">PORTFOLIO ADVENTURE</span>
                 </div>
-                <div className="relative flex items-center justify-center">
-                  <canvas
-                    ref={canvasRef}
-                    width={640}
-                    height={580}
-                    className={`bg-gray-950 ${isMaximized ? 'max-h-[calc(100vh-120px)] max-w-full' : 'w-full max-w-[640px]'}`}
-                    style={{ imageRendering: 'pixelated' }}
-                  />
-                  
-                  {/* Mobile Controls - Inside Canvas at bottom */}
-                  {isMobile && (
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setIsMaximized(!isMaximized)}
+                    className="text-gray-400 hover:text-white transition-colors px-2"
+                    title={isMaximized ? "Minimize" : "Maximize"}
+                  >
+                    <span className="text-xl font-bold">{isMaximized ? '□' : '▢'}</span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      setShowStartPanel(true);
+                      setIsPlaying(false);
+                      setDialogData(null);
+                      setIsMaximized(false);
+                    }}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
+              <div className="relative flex items-center justify-center" style={{ minHeight: '580px' }}>
+                <canvas
+                  ref={canvasRef}
+                  width={640}
+                  height={580}
+                  className={`bg-gray-950 ${isMaximized ? 'max-h-[calc(100vh-120px)] max-w-full' : 'w-full max-w-[640px]'}`}
+                  style={{ imageRendering: 'pixelated', display: 'block' }}
+                />
+                
+                {/* Start Game Panel Overlay */}
+                <AnimatePresence>
+                  {showStartPanel && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className="absolute inset-0 bg-black/75 backdrop-blur-sm flex items-center justify-center z-10"
+                    >
+                      <div className="text-center px-8">
+                        <Gamepad2 className="w-24 h-24 text-accent mx-auto mb-6 drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]" />
+                        <h3 className="text-3xl font-bold mb-4 text-white font-['Press_Start_2P',_monospace] leading-relaxed drop-shadow-lg">
+                          PORTFOLIO<br/>ADVENTURE
+                        </h3>
+                        <p className="text-gray-300 mb-8 max-w-md mx-auto text-sm leading-relaxed">
+                          Navigate through different rooms to explore my portfolio. 
+                          Walk around and enter doors to discover more!
+                        </p>
+                        <button
+                          onClick={() => {
+                            setShowStartPanel(false);
+                            setIsPlaying(true);
+                            setShowInstructions(true);
+                          }}
+                          className="px-10 py-5 bg-accent hover:bg-accent-dark text-white rounded-lg font-['Press_Start_2P',_monospace] text-sm transition-all transform hover:scale-105 inline-flex items-center gap-3 shadow-xl hover:shadow-2xl hover:shadow-accent/50"
+                        >
+                          <Gamepad2 className="w-6 h-6" />
+                          PLAY GAME!
+                        </button>
+                        <div className="mt-8 space-y-2 text-xs text-gray-400 font-mono">
+                          {isMobile ? (
+                            <>
+                              <div>🕹️ Use JOYSTICK to move</div>
+                              <div>👆 ACTION button to interact</div>
+                            </>
+                          ) : (
+                            <>
+                              <div>🎮 WASD or Arrow Keys to move</div>
+                              <div>⌨️ SPACE to interact</div>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+                
+                {/* Mobile Controls - Inside Canvas at bottom */}
+                {isMobile && !showStartPanel && (
                     <div className="absolute bottom-2 left-0 right-0 flex justify-between items-end px-6">
                       {/* Joystick */}
                       <div 
@@ -546,10 +561,9 @@ export default function PortfolioGame() {
                       </button>
                     </div>
                   )}
-                  
                   {/* Dialog overlay */}
                   <AnimatePresence>
-                    {dialogData && (
+                    {dialogData && !showStartPanel && (
                       <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -593,7 +607,7 @@ export default function PortfolioGame() {
               </div>
 
               <AnimatePresence>
-                {showInstructions && !dialogData && (
+                {showInstructions && !dialogData && !showStartPanel && (
                   <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -628,7 +642,6 @@ export default function PortfolioGame() {
                 )}
               </AnimatePresence>
             </div>
-          )}
         </motion.div>
       </div>
     </section>

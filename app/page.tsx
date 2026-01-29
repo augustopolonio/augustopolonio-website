@@ -3,7 +3,7 @@
 import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
 import InteractiveTerminal from './components/InteractiveTerminal';
-import PortfolioGame from './components/PortfolioGame';
+import GameIframeWithStartPanel from './components/GameIframeWithStartPanel';
 import FeaturedProjects from './components/FeaturedProjects';
 import ScrollReveal from './components/ScrollReveal';
 import StaggerChildren, { StaggerItem } from './components/StaggerChildren';
@@ -30,18 +30,7 @@ export default function Home() {
         <InteractiveTerminal />
 
         {/* Portfolio Game Section */}
-        {/* <PortfolioGame /> */}
-        <h2 className="text-4xl font-bold mt-4 mb-4 text-center flex items-center justify-center gap-3">
-            <Gamepad2 className="w-10 h-10 text-accent" />
-            Explore My Portfolio
-          </h2>
-        <iframe
-          src="https://augustopolonio.github.io/portfolio-game-2d/"
-          allow="analytics; performance-observer"
-          sandbox="allow-scripts allow-same-origin"
-          width="100%"
-          height="600px"
-        />
+        <GameIframeWithStartPanel />
 
         {/* Featured Projects Section */}
         <FeaturedProjects />
