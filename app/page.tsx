@@ -26,11 +26,11 @@ export default function Home() {
         {/* Hero Section */}
         <HeroSection />
 
-        {/* Interactive Terminal Section */}
-        <InteractiveTerminal />
-
         {/* Portfolio Game Section */}
         <GameIframeWithStartPanel />
+
+        {/* Interactive Terminal Section */}
+        <InteractiveTerminal />        
 
         {/* Featured Projects Section */}
         <FeaturedProjects />

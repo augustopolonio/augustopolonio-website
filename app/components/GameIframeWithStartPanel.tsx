@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Gamepad2 } from 'lucide-react';
+import { trackGameInteraction } from '../utils/analytics';
 
 export default function GameIframeWithStartPanel() {
   const [showStartPanel, setShowStartPanel] = useState(true);
@@ -14,6 +15,9 @@ export default function GameIframeWithStartPanel() {
   );
 
   const handlePlayGame = () => {
+    // Track game start in Google Analytics
+    trackGameInteraction('Portfolio Adventure', 'play_game');
+    
     setShowStartPanel(false);
     // Load the iframe content only when user clicks play
     setIframeSrc('https://augustopolonio.github.io/portfolio-game-2d/');
