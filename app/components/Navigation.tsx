@@ -1,12 +1,58 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, FileDown } from 'lucide-react';
 import { trackNavigation, trackResumeDownload } from '../utils/analytics';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hideOnMobile, setHideOnMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Detect if device is mobile (including tablets in landscape)
+    const checkMobile = () => {
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const isSmallScreen = window.innerWidth < 1024; // Include tablets
+      setIsMobile(isTouchDevice && isSmallScreen);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    // Observe game section visibility
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // Check mobile status at the time of intersection
+          const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+          const isSmallScreen = window.innerWidth < 1024;
+          const shouldHide = isTouchDevice && isSmallScreen;
+          
+          if (entry.isIntersecting && shouldHide) {
+            setHideOnMobile(true);
+          } else {
+            setHideOnMobile(false);
+          }
+        });
+      },
+      { threshold: 0.3 } // Hide when 30% of game section is visible
+    );
+
+    // Find the game section (iframe's parent section)
+    const gameSection = document.querySelector('iframe')?.closest('section');
+    if (gameSection) {
+      observer.observe(gameSection);
+    }
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      if (gameSection) {
+        observer.unobserve(gameSection);
+      }
+    };
+  }, []);
 
   const handleNavClick = (destination: string) => {
     trackNavigation(destination);
@@ -19,7 +65,7 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
+    <nav className={`fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800 transition-transform duration-300 ${hideOnMobile ? '-translate-y-full' : 'translate-y-0'}`}>
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link 
