@@ -124,6 +124,7 @@ Feel free to reach out for collaborations or opportunities!`
           <div><span className="text-cyan-400">whoami</span> - Display user info</div>
           <div><span className="text-cyan-400">skills</span> - Show technical skills</div>
           <div><span className="text-cyan-400">social</span> - Show social media links</div>
+          <div><span className="text-cyan-400">game.exe</span> - Launch portfolio game 🎮</div>
           <div><span className="text-cyan-400">easter-egg</span> - Try to find hidden commands 🥚</div>
           <div><span className="text-cyan-400">help</span> - Show this help message</div>
         </div>
@@ -273,6 +274,44 @@ Type 'cat about_me.txt' to learn more!`,
         return `Changed directory to ${dir}. (Note: This is a simplified terminal - use 'ls ${dir}' to see contents)`;
       }
       return `cd: ${dir}: No such directory`;
+    },
+
+    'game.exe': () => {
+      // Scroll to the game section and click "Play now!" button if visible
+      setTimeout(() => {
+        const gameSection = document.querySelector('[data-game-section]') || 
+                           document.getElementById('portfolio-game') ||
+                           document.querySelector('iframe')?.parentElement?.parentElement;
+        
+        if (gameSection) {
+          gameSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          
+          // After scrolling, check for "PLAY NOW!" button and click it
+          setTimeout(() => {
+            // Try multiple selectors to find the play button
+            const buttons = Array.from(document.querySelectorAll('button'));
+            const playButton = buttons.find(btn => 
+              btn.textContent?.toUpperCase().includes('PLAY NOW')
+            );
+            
+            if (playButton) {
+              playButton.click();
+            }
+          }, 800);
+        }
+      }, 100);
+
+      return (
+        <div className="space-y-2">
+          <div className="text-green-400">🎮 Launching portfolio game...</div>
+          <div className="ml-4 text-gray-300">
+            Scrolling to game section. Get ready to play!
+          </div>
+          <div className="mt-2 text-yellow-400">
+            💡 Use arrow keys or WASD to move, interact with objects to learn about my work!
+          </div>
+        </div>
+      );
     }
   };
 
