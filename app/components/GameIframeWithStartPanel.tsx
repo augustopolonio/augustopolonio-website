@@ -40,27 +40,13 @@ export default function GameIframeWithStartPanel() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold mb-12 text-center flex items-center justify-center gap-3">
+          <h2 className="text-4xl font-bold mb-4 text-center flex items-center justify-center gap-3">
             Explore playing a game
           </h2>
 
-          <div className="mb-8">
-            <h3 className="text-xl font-bold mb-4 text-center text-accent">How to play</h3>
-            <div className="flex justify-center">
-              <div className="text-sm text-muted space-y-2">
-                {isMobile ? (
-                  <>
-                    <div>🕹️ Use on-screen controls to move and interact</div>
-                  </>
-                ) : (
-                  <>
-                    <div>🎮 WASD or Arrow Keys to move</div>
-                    <div>⌨️ E, Space or Enter to interact</div>
-                  </>
-                )}
-              </div>
-            </div>
-          </div>
+          <p className="text-muted text-center mb-8">
+            Navigate through my portfolio game and interact with objects to discover my work.
+          </p>
 
           <div className="relative w-full" style={{ height: '600px' }}>
             {/* Video Preview - visible when start panel is shown */}
