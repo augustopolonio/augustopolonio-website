@@ -9,6 +9,7 @@ export default function GameIframeWithStartPanel() {
   const [showStartPanel, setShowStartPanel] = useState(true);
   const [iframeSrc, setIframeSrc] = useState('about:blank');
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const gameContainerRef = useRef<HTMLDivElement>(null);
   const [isMobile] = useState(
     typeof window !== 'undefined' && 
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
@@ -19,6 +20,17 @@ export default function GameIframeWithStartPanel() {
     trackGameInteraction('Portfolio Adventure', 'play_game');
     
     setShowStartPanel(false);
+
+    // On mobile, try to enter fullscreen for a true "maximized" experience.
+    // If unsupported/blocked, the container still uses full viewport height.
+    if (isMobile) {
+      try {
+        gameContainerRef.current?.requestFullscreen?.();
+      } catch {
+        // ignore
+      }
+    }
+
     // Load the iframe content only when user clicks play
     setIframeSrc('https://augustopolonio.github.io/portfolio-game-2d/');
     // Focus on iframe to start music
@@ -48,7 +60,11 @@ export default function GameIframeWithStartPanel() {
             Navigate through my portfolio game and interact with objects to discover my work.
           </p>
 
-          <div className="relative w-full" style={{ height: '600px' }}>
+          <div className="flex justify-center">
+            <div
+              ref={gameContainerRef}
+              className="relative w-full md:w-4/5 h-svh md:h-150"
+            >
             {/* Video Preview - visible when start panel is shown */}
             {showStartPanel && (
               <video
@@ -66,9 +82,10 @@ export default function GameIframeWithStartPanel() {
             <iframe
               ref={iframeRef}
               src={iframeSrc}
-              allow="analytics; performance-observer; autoplay"
+              allow="analytics; performance-observer; autoplay; fullscreen"
               sandbox="allow-scripts allow-same-origin"
               className="w-full h-full"
+              allowFullScreen
               style={{ 
                 border: 'none', 
                 display: 'block',
@@ -105,6 +122,7 @@ export default function GameIframeWithStartPanel() {
                 </motion.div>
               )}
             </AnimatePresence>
+            </div>
           </div>
         </motion.div>
       </div>
