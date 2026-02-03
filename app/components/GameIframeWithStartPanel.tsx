@@ -83,7 +83,7 @@ export default function GameIframeWithStartPanel() {
               ref={iframeRef}
               src={iframeSrc}
               allow="analytics; performance-observer; autoplay; fullscreen"
-              sandbox="allow-scripts allow-same-origin"
+              sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
               className="w-full h-full"
               allowFullScreen
               style={{ 
