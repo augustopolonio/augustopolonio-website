@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Gamepad2 } from 'lucide-react';
+import { Gamepad2, Maximize2, Minimize2 } from 'lucide-react';
 import { trackGameInteraction } from '../utils/analytics';
 
 export default function GameIframeWithStartPanel() {
@@ -11,9 +11,39 @@ export default function GameIframeWithStartPanel() {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const gameContainerRef = useRef<HTMLDivElement>(null);
   const [isMobile] = useState(
-    typeof window !== 'undefined' && 
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    typeof window !== 'undefined' &&
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
   );
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      const activeElement = document.fullscreenElement;
+      setIsFullscreen(Boolean(activeElement) && activeElement === gameContainerRef.current);
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    };
+  }, []);
+
+  const toggleFullscreen = async () => {
+    try {
+      const container = gameContainerRef.current;
+      if (!container) return;
+
+      if (document.fullscreenElement) {
+        await document.exitFullscreen();
+        return;
+      }
+
+      await container.requestFullscreen();
+    } catch {
+      // ignore
+    }
+  };
 
   const handlePlayGame = () => {
     // Track game start in Google Analytics
@@ -61,10 +91,24 @@ export default function GameIframeWithStartPanel() {
           </p>
 
           <div className="flex justify-center">
-            <div
-              ref={gameContainerRef}
-              className="relative w-full md:w-4/5 h-svh md:h-150"
-            >
+            <div className="w-full md:w-4/5">
+              <div className="flex items-center justify-end mb-2">
+                <button
+                  type="button"
+                  onClick={toggleFullscreen}
+                  disabled={showStartPanel}
+                  aria-label={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent hover:bg-accent-dark disabled:opacity-50 disabled:cursor-not-allowed text-white transition-colors"
+                >
+                  {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
+                  <span className="text-sm">{isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}</span>
+                </button>
+              </div>
+
+              <div
+                ref={gameContainerRef}
+                className="relative w-full h-svh md:h-150"
+              >
             {/* Video Preview - visible when start panel is shown */}
             {showStartPanel && (
               <video
@@ -122,6 +166,7 @@ export default function GameIframeWithStartPanel() {
                 </motion.div>
               )}
             </AnimatePresence>
+              </div>
             </div>
           </div>
         </motion.div>
