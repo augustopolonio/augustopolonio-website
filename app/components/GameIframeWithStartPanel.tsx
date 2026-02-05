@@ -128,7 +128,8 @@ export default function GameIframeWithStartPanel() {
               src={iframeSrc}
               allow="analytics; performance-observer; autoplay; fullscreen"
               sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
-              className="absolute inset-0 h-full w-[calc(100%+20px)]"
+              className="absolute inset-0 w-full h-full"
+              scrolling="no"
               allowFullScreen
               style={{ 
                 border: 'none', 
