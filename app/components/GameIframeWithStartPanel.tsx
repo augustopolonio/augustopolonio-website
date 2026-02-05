@@ -107,7 +107,7 @@ export default function GameIframeWithStartPanel() {
 
               <div
                 ref={gameContainerRef}
-                className="relative w-full h-svh md:h-150"
+                className="relative w-full h-svh md:h-150 overflow-hidden bg-black"
               >
             {/* Video Preview - visible when start panel is shown */}
             {showStartPanel && (
@@ -128,11 +128,12 @@ export default function GameIframeWithStartPanel() {
               src={iframeSrc}
               allow="analytics; performance-observer; autoplay; fullscreen"
               sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
-              className="w-full h-full"
+              className="absolute inset-0 h-full w-[calc(100%+20px)]"
               allowFullScreen
               style={{ 
                 border: 'none', 
                 display: 'block',
+                outline: 'none',
                 pointerEvents: showStartPanel ? 'none' : 'auto',
                 opacity: showStartPanel ? 0 : 1,
                 transition: 'opacity 0.3s ease'
