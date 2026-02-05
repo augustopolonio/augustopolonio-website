@@ -26,7 +26,8 @@
     "status": "released",
     "tags": ["Puzzle", "Casual", "Time Management", "Single Player", "Color Matching", "Mobile"],
     "image": "/game_covers/Tinturaria.png",
-    "link": "https://play.google.com/store/apps/details?id=com.mastercat.tinturaria",
+    "link": "https://www.youtube.com/watch?v=cgjj337HBmc",
+    "old_link": "https://play.google.com/store/apps/details?id=com.mastercat.tinturaria",
     "engine": "unity"
   },
   {
@@ -36,7 +37,8 @@
     "status": "released",
     "tags": ["Arcade", "Casual", "Endless Runner", "Single Player", "Mobile"],
     "image": "/game_covers/Flappy_Black_Cat.png",
-    "link": "https://play.google.com/store/apps/details?id=com.mastercat.flappyblackcat",
+    "link": "https://www.youtube.com/watch?v=FpcZAGOy2Og",
+    "old_link": "https://play.google.com/store/apps/details?id=com.mastercat.flappyblackcat",
     "engine": "unity"
   },
   {
