@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Augusto Polonio — Portfolio Website
 
-## Getting Started
+![](public/screenshots/hero.png)
 
-First, run the development server:
+This project is my personal portfolio, designed as an interactive experience to showcase my projects, skills, and journey in game development and web technologies.
+It’s not just a static website — it includes a hero section, an interactive terminal, and a 2D RPG-style portfolio game.
+
+
+🎮 Game source repo: https://github.com/augustopolonio/portfolio-game-2d/
+
+
+## Highlights
+
+- **Interactive landing**: hero section + animated UI touches
+- **Interactive Terminal**: terminal-like component for exploring content
+- **Portfolio Game**: embedded game experience (iframe + start panel)
+- **SEO-friendly**: metadata + `robots.txt` + `sitemap.xml`
+- **Analytics-ready**: Google Analytics + Vercel Analytics
+
+## Tech Stack
+
+- **Framework**: Next.js (App Router)
+- **UI**: React
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animation**: Framer Motion
+- **Icons**: lucide-react
+- **Analytics**: @vercel/analytics + optional Google Analytics
+
+## Screenshots
+
+### Interactive Terminal
+
+![Interactive Terminal](public/screenshots/interactive-terminal.png)
+
+### Portfolio Game
+
+![Portfolio Game](public/screenshots/portfolio-game.png)
+
+## Getting Started (Local Development)
+
+### Install
+
+```bash
+npm install
+```
+
+### Run
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev
+npm run build
+npm run start
+npm run lint
+```
 
-## Learn More
+## Credits (Assets & Music)
 
-To learn more about Next.js, take a look at the following resources:
+### Visual / Game Assets
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Asset | Author / Source | License | Notes |
+|------:|------------------|---------|-------|
+| (example) UI icons | https://lucide.dev | ISC | Used via `lucide-react` |
+| Pixel_Poem Free RPG Basic Tileset | https://pixel-poem.itch.io/free-rpg-tileset | See asset page | Used in Portfolio Game |
+| SIERRASSETS Furniture Pack (Mix & Match) | https://sierrassets.itch.io/pixel-art-furniture-pack | See asset page | Used in Portfolio Game |
+| (add yours) |  |  |  |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Music / Audio
 
-## Deploy on Vercel
+| Track / SFX | Author / Source | License | Where Used |
+|-----------:|------------------|---------|-----------|
+| Bright Roads of Doria | Concept & composition by Augusto Polonio; audio generated with Suno AI | Suno AI Basic (free) plan: Suno owns; permitted for non-commercial use | Portfolio Game (embedded iframe) |
+| Cozy Kingdom Overworld | Concept & composition by Augusto Polonio; audio generated with Suno AI | Suno AI Basic (free) plan: Suno owns; permitted for non-commercial use | Portfolio Game (embedded iframe) |
+| Maple Mosaic | Concept & composition by Augusto Polonio; audio generated with Suno AI | Suno AI Basic (free) plan: Suno owns; permitted for non-commercial use | Portfolio Game (embedded iframe) |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Music note: these tracks were created by Augusto (concept and composition) and the audio was generated using the Suno AI platform. Per Suno’s Basic (free) plan terms: Suno is the owner of the songs and you are allowed to use them for non-commercial purposes (this project).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Portfolio game source repo: https://github.com/augustopolonio/portfolio-game-2d/
+
+## Deployment
+
+This project can be deployed anywhere that supports Next.js. A common option is Vercel.
+
+- Build: `npm run build`
+- Start: `npm run start`
+
+## License
+
+Copyright © Augusto Polonio.
