@@ -70,7 +70,6 @@ npm run lint
 |------:|------------------|---------|-------|
 | Pixel_Poem Free RPG Basic Tileset | https://pixel-poem.itch.io/free-rpg-tileset | See asset page | Used in Portfolio Game |
 | SIERRASSETS Furniture Pack (Mix & Match) | https://sierrassets.itch.io/pixel-art-furniture-pack | See asset page | Used in Portfolio Game |
-|  |  |  |  |
 
 ### Music / Audio
 
@@ -79,7 +78,6 @@ npm run lint
 | Bright Roads of Doria | Concept & composition by Augusto Polonio; audio generated with Suno AI | Suno AI Basic (free) plan: Suno owns; permitted for non-commercial use | Portfolio Game (embedded iframe) |
 | Cozy Kingdom Overworld | Concept & composition by Augusto Polonio; audio generated with Suno AI | Suno AI Basic (free) plan: Suno owns; permitted for non-commercial use | Portfolio Game (embedded iframe) |
 | Maple Mosaic | Concept & composition by Augusto Polonio; audio generated with Suno AI | Suno AI Basic (free) plan: Suno owns; permitted for non-commercial use | Portfolio Game (embedded iframe) |
-|  |  |  |  |
 
 Music note: these tracks were created by Augusto (concept and composition) and the audio was generated using the Suno AI platform. Per Suno’s Basic (free) plan terms: Suno is the owner of the songs and you are allowed to use them for non-commercial purposes (this project).
 
