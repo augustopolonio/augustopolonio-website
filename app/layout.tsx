@@ -17,14 +17,13 @@ const pressStart2P = Press_Start_2P({
 });
 
 const webMobileYears = getWebMobileYears();
-const gameDevYears = getGameDevYears();
-const description = `Senior Software Developer transitioning into game development. ${webMobileYears}+ years of experience in web/mobile development, now creating interactive experiences with Unity and Godot. (${gameDevYears}+ years in game dev)`;
+const description = `Game Developer with more than a decade of experience creating indie games with Unity and Godot. Also a Senior Software Developer with ${webMobileYears}+ years in web/mobile development.`;
 
 export const metadata: Metadata = {
-  title: "Augusto Polonio | Game Developer",
+  title: "Augusto Polonio | Game Developer & Sr. Software Engineer",
   description,
   openGraph: {
-    title: "Augusto Polonio | Game Developer",
+    title: "Augusto Polonio | Game Developer & Sr. Software Engineer",
     description,
     images: ['/augusto-polonio-avatar.png'],
   },
