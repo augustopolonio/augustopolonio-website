@@ -120,3 +120,40 @@ html {
 .group:hover .group-hover\:rotate-y-180 {
   transform: rotateY(180deg);
 }
+
+/* Hide scrollbars while keeping scroll enabled */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Auto-scrolling horizontal strip (used in Laboratory section) */
+@keyframes lab-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.lab-marquee-track {
+  width: max-content;
+  will-change: transform;
+  animation: lab-marquee 45s linear infinite;
+}
+
+.lab-marquee:hover .lab-marquee-track,
+.lab-marquee:focus-within .lab-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab-marquee-track {
+    animation: none;
+  }
+}
