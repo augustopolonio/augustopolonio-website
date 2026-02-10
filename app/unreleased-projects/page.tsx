@@ -4,28 +4,97 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Clock } from 'lucide-react';
 
+type ProjectMedia =
+  | { kind: 'image'; src: string }
+  | { kind: 'youtube'; videoId: string };
+
 interface UnreleasedProject {
   id: number;
   title: string;
   description: string;
   status: string;
   tags: string[];
-  image: string;
+  media: ProjectMedia;
   engine: 'unity' | 'godot';
 }
 
 export default function UnreleasedProjects() {
+  const getYouTubeEmbedUrl = (videoId: string) =>
+    `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1`;
+
   const projects: UnreleasedProject[] = [
     {
       id: 1,
-      title: "Alone at the Fast Food",
-      description: "A work-in-progress horror survival game set in an abandoned fast food restaurant. Navigate through dark corridors, solve puzzles, and uncover the mystery behind the restaurant's closure.",
-      status: "In Development",
-      tags: ["Horror", "Survival", "Puzzle", "Single Player"],
-      image: '/game_covers/Alone_at_the_fast_food.png',
+      title: 'Football Soccer Game',
+      description: 'Unity prototype exploring basic ball physics, player control, and match-style interactions.',
+      status: 'Prototype',
+      tags: ['Unity', 'Sports', 'Physics', 'Test'],
+      media: { kind: 'youtube', videoId: '0bgYC3ry3Zs' },
+      engine: 'unity',
+    },    
+    {
+      id: 2,
+      title: 'Car Controller (Multiple Cameras)',
+      description: 'Vehicle controller prototype with multiple camera modes and camera switching behavior.',
+      status: 'Prototype',
+      tags: ['Godot', 'Vehicle', 'Cameras', 'Test'],
+      media: { kind: 'youtube', videoId: '2tSbSua5xsc' },
       engine: 'godot',
     },
-    // Add more unreleased projects here as they become available
+    {
+      id: 3,
+      title: 'FPS Game',
+      description: 'First-person prototype exploring player movement, aiming, and core FPS interaction.',
+      status: 'Prototype',
+      tags: ['Godot', 'FPS', 'Gameplay', 'Test'],
+      media: { kind: 'youtube', videoId: 'wa8b-pEOwQ0' },
+      engine: 'godot',
+    },
+    {
+      id: 4,
+      title: 'Tiny Knight',
+      description: 'Tutorial-based prototype built while following the Brackeys Godot series (movement and combat fundamentals).',
+      status: 'Prototype',
+      tags: ['Godot', 'Tutorial', 'Platformer', 'Prototype'],
+      media: { kind: 'youtube', videoId: 'X1mwOwS9FIY' },
+      engine: 'godot',
+    },    
+    {
+      id: 5,
+      title: 'Global Illumination',
+      description: 'Godot rendering experiment focused on real-time global illumination and lighting behavior.',
+      status: 'Prototype',
+      tags: ['Godot', 'Rendering', 'Lighting', 'Test'],
+      media: { kind: 'youtube', videoId: 'zVScwBOSLZg' },
+      engine: 'godot',
+    },
+    {
+      id: 6,
+      title: 'Third-Person Shooter Game',
+      description: 'Unity third-person shooter prototype focused on movement, camera follow, and shooting feel.',
+      status: 'Prototype',
+      tags: ['Unity', 'TPS', 'Combat', 'Test'],
+      media: { kind: 'youtube', videoId: '5SrqXDmgO4k' },
+      engine: 'unity',
+    },
+    {
+      id: 7,
+      title: 'Action Platform Game',
+      description: 'Unity action-platformer prototype exploring jumping, attacks, and responsive character control.',
+      status: 'Prototype',
+      tags: ['Unity', 'Platformer', 'Action', 'Test'],
+      media: { kind: 'youtube', videoId: 'H-3wmRPnLu8' },
+      engine: 'unity',
+    },
+    {
+      id: 8,
+      title: 'Open World Game',
+      description: 'Unity open-world exploration prototype testing traversal, scale, and environment setup.',
+      status: 'Prototype',
+      tags: ['Unity', 'Open World', 'Exploration', 'Test'],
+      media: { kind: 'youtube', videoId: '9FmgfJ92fWA' },
+      engine: 'unity',
+    },
   ];
 
   return (
@@ -46,8 +115,8 @@ export default function UnreleasedProjects() {
             
             <h1 className="text-5xl font-bold mb-6">Unreleased Projects</h1>
             <p className="text-xl text-muted max-w-3xl leading-relaxed">
-              Work-in-progress game projects exploring new mechanics and creative concepts. 
-              These projects showcase my ongoing learning and experimentation in game development.
+              A collection of some experimental prototypes and technical tests — my game-dev lab.
+              These videos capture mechanics, systems, and engine experiments from my learning journey.
             </p>
           </div>
         </section>
@@ -68,13 +137,26 @@ export default function UnreleasedProjects() {
                     </div>
                     
                     <div className="relative w-full aspect-video overflow-hidden bg-zinc-200 dark:bg-zinc-800">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover"
-                      />
-                      <div className="absolute top-3 left-3 z-10 px-2 py-1.5 bg-black/60 backdrop-blur-sm rounded-md flex items-center gap-1.5">
+                      {project.media.kind === 'image' ? (
+                        <Image
+                          src={project.media.src}
+                          alt={project.title}
+                          fill
+                          className="object-cover"
+                        />
+                      ) : (
+                        <iframe
+                          className="absolute inset-0 h-full w-full"
+                          src={getYouTubeEmbedUrl(project.media.videoId)}
+                          title={`${project.title} - YouTube video`}
+                          loading="lazy"
+                          referrerPolicy="strict-origin-when-cross-origin"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                        />
+                      )}
+
+                      <div className="absolute top-3 left-3 z-10 px-2 py-1.5 bg-black/60 backdrop-blur-sm rounded-md flex items-center gap-1.5 pointer-events-none">
                         <Image
                           src={project.engine === 'unity' ? '/unity_logo.png' : '/godot_logo.png'}
                           alt={project.engine === 'unity' ? 'Unity' : 'Godot'}
