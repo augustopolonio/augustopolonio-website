@@ -110,7 +110,7 @@ export default function Navigation() {
               Contact
             </Link>
             <a
-              href="/Augusto Polonio - Resume.pdf"
+              href="/Augusto_Polonio_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 text-sm text-accent hover:text-accent-dark transition-colors"
@@ -167,7 +167,7 @@ export default function Navigation() {
               Contact
             </Link>
             <a
-              href="/Augusto Polonio - Resume.pdf"
+              href="/Augusto_Polonio_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 text-sm text-accent hover:text-accent-dark transition-colors"

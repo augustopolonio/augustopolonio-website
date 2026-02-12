@@ -260,7 +260,7 @@ export default function Home() {
             <ScrollReveal variant="scale" delay={0.5}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
               <a
-                href="/Augusto Polonio - Resume.pdf"
+                href="/Augusto_Polonio_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-accent hover:bg-accent-dark text-white rounded-lg font-medium transition-colors"

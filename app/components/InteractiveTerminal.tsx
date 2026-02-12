@@ -96,7 +96,7 @@ Feel free to reach out for collaborations or opportunities!`
     'resume.pdf': {
       type: 'file',
       content: 'Opening resume... Redirecting to PDF file.',
-      action: () => window.open('/Augusto Polonio - Resume.pdf', '_blank')
+      action: () => window.open('/Augusto_Polonio_Resume.pdf', '_blank')
     },
     'skills.json': {
       type: 'file',
