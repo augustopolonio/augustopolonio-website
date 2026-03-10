@@ -215,6 +215,11 @@ export default function Home() {
                   <StaggerItem>
                     <p>
                       I'm a Senior Web and Mobile Developer with over {webMobileYears} years of experience building scalable applications using JavaScript and .NET (C#). 
+                      Working remotely since 2016, I have honed collaboration skills across distributed teams and thrive in creative, agile environments.
+                    </p>
+                  </StaggerItem>
+                  <StaggerItem>
+                    <p>
                       Today, I'm transitioning my career into Game Development — a field where I can merge my technical expertise with my lifelong passion for creating interactive experiences.
                     </p>
                   </StaggerItem>
