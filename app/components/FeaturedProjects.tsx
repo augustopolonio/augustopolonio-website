@@ -17,7 +17,7 @@ interface Game {
   tags: string[];
   image: string;
   link: string;
-  engine: 'unity' | 'godot';
+  engine: 'unity' | 'godot' | 'threejs';
 }
 
 export default function FeaturedProjects() {
@@ -53,9 +53,9 @@ export default function FeaturedProjects() {
     <section id="projects" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <ScrollReveal variant="blur">
-          <h2 className="text-4xl font-bold mb-4 text-center">Featured Projects</h2>
+          <h2 className="text-4xl font-bold mb-4 text-center">Featured Work</h2>
           <p className="text-muted text-center mb-8 max-w-2xl mx-auto">
-            A showcase of my released game projects from{' '}
+            A showcase of my game projects and developer tools, including releases from{' '}
             <a
               href="https://mastercatgames.vercel.app/"
               target="_blank"
@@ -66,7 +66,7 @@ export default function FeaturedProjects() {
               Master Cat Games
               <ExternalLink className="w-4 h-4" />
             </a>
-            , my indie game studio.
+            , my indie game studio, plus open-source tooling.
           </p>
         </ScrollReveal>
 
@@ -84,7 +84,7 @@ export default function FeaturedProjects() {
               : { href: game.link, target: "_blank", rel: "noopener noreferrer" };
 
             const handleProjectClick = () => {
-              const action = game.status === 'in-development' ? 'view' : 'demo';
+              const action = game.status === 'in-development' ? 'view' : game.status === 'open-source' ? 'github' : 'demo';
               trackProjectClick(game.title, action);
             };
 
@@ -105,6 +105,11 @@ export default function FeaturedProjects() {
                       IN DEVELOPMENT
                     </div>
                   )}
+                  {game.status === 'open-source' && (
+                    <div className="absolute top-4 right-4 z-10 px-3 py-1.5 bg-emerald-600 text-white text-xs font-semibold rounded-full shadow-lg">
+                      OPEN SOURCE TOOL
+                    </div>
+                  )}
                   <div className="relative w-full aspect-video overflow-hidden">
                     <Image
                       src={game.image}
@@ -113,14 +118,29 @@ export default function FeaturedProjects() {
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute top-3 left-3 z-10 px-2 py-1.5 bg-black/60 backdrop-blur-sm rounded-md flex items-center gap-1.5">
-                      <Image
-                        src={game.engine === 'unity' ? '/unity_logo.png' : '/godot_logo.png'}
-                        alt={game.engine === 'unity' ? 'Unity' : 'Godot'}
-                        width={20}
-                        height={20}
-                        className="object-contain"
-                      />
-                      <span className="text-white text-xs font-medium">{game.engine === 'unity' ? 'Unity' : 'Godot'}</span>
+                      {game.engine === 'threejs' ? (
+                        <>
+                          <Image
+                            src="/threejs_logo.png"
+                            alt="Three.js"
+                            width={20}
+                            height={20}
+                            className="object-contain"
+                          />
+                          <span className="text-white text-xs font-medium">Three.js</span>
+                        </>
+                      ) : (
+                        <>
+                          <Image
+                            src={game.engine === 'unity' ? '/unity_logo.png' : '/godot_logo.png'}
+                            alt={game.engine === 'unity' ? 'Unity' : 'Godot'}
+                            width={20}
+                            height={20}
+                            className="object-contain"
+                          />
+                          <span className="text-white text-xs font-medium">{game.engine === 'unity' ? 'Unity' : 'Godot'}</span>
+                        </>
+                      )}
                     </div>
                   </div>
                   <div className="p-6">

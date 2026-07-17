@@ -1,5 +1,15 @@
 [
   {
+    "id": -1,
+    "title": "First-Person Starter Kit (Three.js)",
+    "description": "An open-source first-person starter kit built with Three.js to accelerate prototyping of 3D web experiences.",
+    "status": "open-source",
+    "tags": ["Three.js", "TypeScript", "WebGL", "First Person", "Open Source"],
+    "image": "/screenshots/first-person-starter-kit-threejs.png",
+    "link": "https://github.com/augustopolonio/first-person-starter-kit",
+    "engine": "threejs"
+  },
+  {
     "id": 0,
     "title": "Alone at the Fast Food",
     "description": "A work-in-progress horror survival game set in an abandoned fast food restaurant. Navigate through dark corridors, solve puzzles, and uncover the mystery behind the restaurant's closure.",
