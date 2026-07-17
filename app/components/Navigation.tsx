@@ -17,7 +17,7 @@ export default function Navigation() {
       const isSmallScreen = window.innerWidth < 1024; // Include tablets
       setIsMobile(isTouchDevice && isSmallScreen);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
 
@@ -29,7 +29,7 @@ export default function Navigation() {
           const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
           const isSmallScreen = window.innerWidth < 1024;
           const shouldHide = isTouchDevice && isSmallScreen;
-          
+
           if (entry.isIntersecting && shouldHide) {
             setHideOnMobile(true);
           } else {
@@ -68,8 +68,8 @@ export default function Navigation() {
     <nav className={`fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800 transition-transform duration-300 ${hideOnMobile ? '-translate-y-full' : 'translate-y-0'}`}>
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="hover:opacity-80 transition-opacity"
             onClick={() => trackNavigation('Home')}
           >
@@ -81,29 +81,36 @@ export default function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <Link 
-              href="/#projects" 
+            <Link
+              href="/#projects"
               className="text-sm hover:text-accent transition-colors"
               onClick={() => trackNavigation('Projects')}
             >
               Projects
             </Link>
-            <Link 
-              href="/work-experience" 
+            <Link
+              href="/lab"
+              className="text-sm hover:text-accent transition-colors"
+              onClick={() => trackNavigation('Lab')}
+            >
+              Lab
+            </Link>
+            <Link
+              href="/work-experience"
               className="text-sm hover:text-accent transition-colors"
               onClick={() => trackNavigation('Experience')}
             >
               Experience
             </Link>
-            <Link 
-              href="/#about" 
+            <Link
+              href="/#about"
               className="text-sm hover:text-accent transition-colors"
               onClick={() => trackNavigation('About')}
             >
               About
             </Link>
-            <Link 
-              href="/#contact" 
+            <Link
+              href="/#contact"
               className="text-sm hover:text-accent transition-colors"
               onClick={() => trackNavigation('Contact')}
             >
@@ -144,6 +151,13 @@ export default function Navigation() {
               onClick={() => handleNavClick('Projects')}
             >
               Projects
+            </Link>
+            <Link
+              href="/lab"
+              className="text-sm hover:text-accent transition-colors"
+              onClick={() => handleNavClick('Lab')}
+            >
+              Lab
             </Link>
             <Link
               href="/work-experience"

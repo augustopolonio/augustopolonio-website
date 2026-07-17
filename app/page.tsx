@@ -54,7 +54,7 @@ export default function Home() {
   return (
     <>
       <Navigation />
-      
+
       <main className="min-h-screen">
         {/* Hero Section */}
         <HeroSection />
@@ -63,7 +63,7 @@ export default function Home() {
         <GameIframeWithStartPanel />
 
         {/* Interactive Terminal Section */}
-        <InteractiveTerminal />        
+        <InteractiveTerminal />
 
         {/* Featured Projects Section */}
         <FeaturedProjects />
@@ -80,7 +80,7 @@ export default function Home() {
                   </p>
                 </div>
                 <Link
-                  href="/unreleased-projects"
+                  href="/lab"
                   className="text-accent hover:text-accent-dark font-medium transition-colors whitespace-nowrap"
                 >
                   View all →
@@ -193,7 +193,7 @@ export default function Home() {
             <ScrollReveal variant="blur">
               <h2 className="text-4xl font-bold mb-16 text-center">About Me</h2>
             </ScrollReveal>
-            
+
             <div className="grid md:grid-cols-2 gap-12 items-start mb-16">
               {/* Image Column */}
               <ScrollReveal variant="slideLeft" delay={0.2}>
@@ -208,13 +208,13 @@ export default function Home() {
                   </div>
                 </div>
               </ScrollReveal>
-              
+
               {/* Text Column */}
               <StaggerChildren staggerDelay={0.15}>
                 <div className="space-y-6 text-lg text-muted/90 leading-relaxed">
                   <StaggerItem>
                     <p>
-                      I'm a Senior Web and Mobile Developer with over {webMobileYears} years of experience building scalable applications using JavaScript and .NET (C#). 
+                      I'm a Senior Web and Mobile Developer with over {webMobileYears} years of experience building scalable applications using JavaScript and .NET (C#).
                       Working remotely since 2016, I have honed collaboration skills across distributed teams and thrive in creative, agile environments.
                     </p>
                   </StaggerItem>
@@ -225,7 +225,7 @@ export default function Home() {
                   </StaggerItem>
                   <StaggerItem>
                     <p>
-                      I've been developing games as a hobby since 2015, using Unity and more recently Godot, while continuously expanding my portfolio and skills. 
+                      I've been developing games as a hobby since 2015, using Unity and more recently Godot, while continuously expanding my portfolio and skills.
                       Through these projects, I've explored gameplay mechanics, performance optimization, and system design, experimenting with new ideas and sharing DevLogs to document my journey.
                     </p>
                   </StaggerItem>
@@ -236,13 +236,13 @@ export default function Home() {
                   </StaggerItem>
                   <StaggerItem>
                     <p>
-                  With a degree in Systems Analysis and Development and years of independent game creation, I'm eager to contribute my blend of technical depth and creative vision to a professional role in Game Development.
+                      With a degree in Systems Analysis and Development and years of independent game creation, I'm eager to contribute my blend of technical depth and creative vision to a professional role in Game Development.
                     </p>
                   </StaggerItem>
                 </div>
               </StaggerChildren>
             </div>
-            
+
             <ScrollReveal variant="fadeUp" delay={0.4}>
               <div className="grid md:grid-cols-2 gap-8 mt-16 max-w-2xl mx-auto">
                 <div className="p-6 bg-background rounded-lg border border-zinc-200 dark:border-zinc-800">
@@ -261,28 +261,28 @@ export default function Home() {
                 </div>
               </div>
             </ScrollReveal>
-            
+
             <ScrollReveal variant="scale" delay={0.5}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
-              <a
-                href="/Augusto_Polonio_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-accent hover:bg-accent-dark text-white rounded-lg font-medium transition-colors"
-                onClick={() => trackResumeDownload()}
-              >
-                <FileDown className="w-5 h-5" />
-                Download Resume
-              </a>
-              <Link
-                href="#contact"
-                className="px-8 py-4 border-2 border-accent text-accent hover:bg-accent hover:text-white rounded-lg font-medium transition-colors"
-                onClick={() => trackContact('Get in Touch Button')}
-              >
-                Get in Touch
-              </Link>
-            </div>
-          </ScrollReveal>
+                <a
+                  href="/Augusto_Polonio_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-accent hover:bg-accent-dark text-white rounded-lg font-medium transition-colors"
+                  onClick={() => trackResumeDownload()}
+                >
+                  <FileDown className="w-5 h-5" />
+                  Download Resume
+                </a>
+                <Link
+                  href="#contact"
+                  className="px-8 py-4 border-2 border-accent text-accent hover:bg-accent hover:text-white rounded-lg font-medium transition-colors"
+                  onClick={() => trackContact('Get in Touch Button')}
+                >
+                  Get in Touch
+                </Link>
+              </div>
+            </ScrollReveal>
           </div>
         </section>
 
@@ -292,7 +292,7 @@ export default function Home() {
             <ScrollReveal variant="fadeUp">
               <h2 className="text-4xl font-bold mb-6">Let's Connect</h2>
               <p className="text-xl text-muted mb-12 max-w-2xl mx-auto">
-                I'm actively seeking opportunities in game development. 
+                I'm actively seeking opportunities in game development.
                 Let's discuss how my technical expertise can contribute to your team.
               </p>
             </ScrollReveal>
