@@ -20,6 +20,7 @@ const labVideos = [
   { title: 'Car Controller (Multiple Cameras)', engine: 'godot' as const, videoId: '2tSbSua5xsc' },
   { title: 'FPS Game', engine: 'godot' as const, videoId: 'wa8b-pEOwQ0' },
   { title: 'Tiny Knight (Brackeys Tutorial)', engine: 'godot' as const, videoId: 'X1mwOwS9FIY' },
+  { title: 'Resident Evil Clone (UE5 Test)', engine: 'unreal' as const, videoId: 'pYWYQA3nCTQ' },
   { title: 'Football Soccer Game', engine: 'unity' as const, videoId: '0bgYC3ry3Zs' },
   { title: 'Third-Person Shooter Game', engine: 'unity' as const, videoId: '5SrqXDmgO4k' },
   { title: 'Action Platform Game', engine: 'unity' as const, videoId: 'H-3wmRPnLu8' },
@@ -110,14 +111,14 @@ export default function Home() {
 
                           <div className="absolute top-3 left-3 z-10 px-2 py-1.5 bg-black/60 backdrop-blur-sm rounded-md flex items-center gap-1.5 pointer-events-none">
                             <Image
-                              src={video.engine === 'unity' ? '/unity_logo.png' : '/godot_logo.png'}
-                              alt={video.engine === 'unity' ? 'Unity' : 'Godot'}
+                              src={video.engine === 'unity' ? '/unity_logo.png' : video.engine === 'godot' ? '/godot_logo.png' : '/unreal_logo.png'}
+                              alt={video.engine === 'unity' ? 'Unity' : video.engine === 'godot' ? 'Godot' : 'Unreal Engine 5'}
                               width={20}
                               height={20}
                               className="object-contain"
                             />
                             <span className="text-white text-xs font-medium">
-                              {video.engine === 'unity' ? 'Unity' : 'Godot'}
+                              {video.engine === 'unity' ? 'Unity' : video.engine === 'godot' ? 'Godot' : 'Unreal Engine 5'}
                             </span>
                           </div>
 
@@ -156,8 +157,8 @@ export default function Home() {
               <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-zinc-200 dark:border-zinc-800">
                 <div className="flex items-center gap-3 min-w-0">
                   <Image
-                    src={activeLabVideo.engine === 'unity' ? '/unity_logo.png' : '/godot_logo.png'}
-                    alt={activeLabVideo.engine === 'unity' ? 'Unity' : 'Godot'}
+                    src={activeLabVideo.engine === 'unity' ? '/unity_logo.png' : activeLabVideo.engine === 'godot' ? '/godot_logo.png' : '/unreal_logo.png'}
+                    alt={activeLabVideo.engine === 'unity' ? 'Unity' : activeLabVideo.engine === 'godot' ? 'Godot' : 'Unreal Engine 5'}
                     width={20}
                     height={20}
                     className="object-contain"

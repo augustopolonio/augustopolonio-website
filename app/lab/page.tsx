@@ -24,6 +24,15 @@ export default function LabPage() {
 
   const projects: LabProject[] = [
     {
+      id: 9,
+      title: 'Resident Evil Clone (UE5 Test)',
+      description: 'A quick Unreal Engine 5 test inspired by Resident Evil, combining Resident Horror V1 template with the Downtown Alley scene and ray tracing to study horror gameplay and visuals for Alone at the Fast Food.',
+      status: 'Prototype',
+      tags: ['Unreal Engine 5', 'Horror', 'Ray Tracing', 'Resident Evil Inspired', 'Test'],
+      media: { kind: 'youtube', videoId: 'pYWYQA3nCTQ' },
+      engine: 'unreal',
+    },
+    {
       id: 1,
       title: 'Football Soccer Game',
       description: 'Unity prototype exploring basic ball physics, player control, and match-style interactions.',
@@ -94,15 +103,6 @@ export default function LabPage() {
       tags: ['Unity', 'Open World', 'Exploration', 'Test'],
       media: { kind: 'youtube', videoId: '9FmgfJ92fWA' },
       engine: 'unity',
-    },
-    {
-      id: 9,
-      title: 'Resident Evil Clone (UE5 Test)',
-      description: 'A quick Unreal Engine 5 test inspired by Resident Evil, combining Resident Horror V1 template with the Downtown Alley scene and ray tracing to study horror gameplay and visuals for Alone at the Fast Food.',
-      status: 'Prototype',
-      tags: ['Unreal Engine 5', 'Horror', 'Ray Tracing', 'Resident Evil Inspired', 'Test'],
-      media: { kind: 'youtube', videoId: 'pYWYQA3nCTQ' },
-      engine: 'unreal',
     },
   ];
 
