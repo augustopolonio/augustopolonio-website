@@ -15,7 +15,7 @@ interface LabProject {
   status: string;
   tags: string[];
   media: ProjectMedia;
-  engine: 'unity' | 'godot';
+  engine: 'unity' | 'godot' | 'unreal';
 }
 
 export default function LabPage() {
@@ -95,6 +95,15 @@ export default function LabPage() {
       media: { kind: 'youtube', videoId: '9FmgfJ92fWA' },
       engine: 'unity',
     },
+    {
+      id: 9,
+      title: 'Resident Evil Clone (UE5 Test)',
+      description: 'A quick Unreal Engine 5 test inspired by Resident Evil, combining Resident Horror V1 template with the Downtown Alley scene and ray tracing to study horror gameplay and visuals for Alone at the Fast Food.',
+      status: 'Prototype',
+      tags: ['Unreal Engine 5', 'Horror', 'Ray Tracing', 'Resident Evil Inspired', 'Test'],
+      media: { kind: 'youtube', videoId: 'pYWYQA3nCTQ' },
+      engine: 'unreal',
+    },
   ];
 
   return (
@@ -156,13 +165,15 @@ export default function LabPage() {
 
                       <div className="absolute top-3 left-3 z-10 px-2 py-1.5 bg-black/60 backdrop-blur-sm rounded-md flex items-center gap-1.5 pointer-events-none">
                         <Image
-                          src={project.engine === 'unity' ? '/unity_logo.png' : '/godot_logo.png'}
-                          alt={project.engine === 'unity' ? 'Unity' : 'Godot'}
+                          src={project.engine === 'unity' ? '/unity_logo.png' : project.engine === 'godot' ? '/godot_logo.png' : '/unreal_logo.png'}
+                          alt={project.engine === 'unity' ? 'Unity' : project.engine === 'godot' ? 'Godot' : 'Unreal Engine 5'}
                           width={20}
                           height={20}
                           className="object-contain"
                         />
-                        <span className="text-white text-xs font-medium">{project.engine === 'unity' ? 'Unity' : 'Godot'}</span>
+                        <span className="text-white text-xs font-medium">
+                          {project.engine === 'unity' ? 'Unity' : project.engine === 'godot' ? 'Godot' : 'Unreal Engine 5'}
+                        </span>
                       </div>
                     </div>
 
