@@ -2,9 +2,9 @@
   {
     "id": -2,
     "title": "Little Big Smasher",
-    "description": "A game jam action game where you control a giant robot and smash through swarms of tiny enemies.",
+    "description": "A platformer game built in 48 hours for the Kenney Jam.",
     "status": "released",
-    "tags": ["Platformer", "Action", "Arcade", "3D", "Game Jam", "Single Player"],
+    "tags": ["Platformer", "Game Jam", "Action", "Arcade", "3D", "Single Player"],
     "image": "/game_covers/Little_Big_Smasher.png",
     "link": "https://augustopolonio.itch.io/little-big-smasher",
     "engine": "unity"
