@@ -1,5 +1,15 @@
 [
   {
+    "id": -2,
+    "title": "Little Big Smasher",
+    "description": "A game jam action game where you control a giant robot and smash through swarms of tiny enemies.",
+    "status": "released",
+    "tags": ["Platformer", "Action", "Arcade", "3D", "Game Jam", "Single Player"],
+    "image": "/game_covers/Little_Big_Smasher.png",
+    "link": "https://augustopolonio.itch.io/little-big-smasher",
+    "engine": "unity"
+  },
+  {
     "id": -1,
     "title": "First-Person Starter Kit (Three.js)",
     "description": "An open-source first-person starter kit built with Three.js to accelerate prototyping of 3D web experiences.",
