@@ -1,10 +1,10 @@
 [
   {
     "id": -2,
-    "title": "Little Big Smasher - Demo",
+    "title": "Little Big Smasher",
     "description": "A platformer game built in 48 hours for the Kenney Jam.",
     "status": "released",
-    "tags": ["Platformer", "Game Jam", "Action", "Arcade", "3D", "Single Player"],
+    "tags": ["Platformer", "Game Jam", "Action", "Arcade", "3D", "Single Player", "Demo"],
     "image": "/game_covers/LBS_Cover_Demo.png",
     "link": "https://augustopolonio.itch.io/little-big-smasher",
     "engine": "godot"
