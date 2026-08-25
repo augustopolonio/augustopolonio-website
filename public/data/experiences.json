@@ -6,12 +6,12 @@
     "period": "FEB 2022 - PRESENT",
     "description": "Collaborated with architects and engineers to implement new features in SaaS ERP products.",
     "highlights": [
-      "Mentored junior and core developers, guiding them in writing clean code to ensure easy maintenance",
-      "Conducted thorough code reviews to ensure code quality and adherence to best practices with a focus on SOLID principles",
-      "Increased application performance by optimizing code and improving system architecture",
-      "Helped Product Owner and Scrum Master to find the best solutions for the development process and applications",
-      "Built and maintained CI/CD pipelines for staging and production environments, ensuring reliable and efficient deployments",
-      "Migrated legacy applications to the new tech stack"
+      "Led technical initiatives across multiple SaaS ERP systems, collaborating with architects and engineers to deliver new features and modernize platforms.",
+      "Mentored developers, enforced clean code practices, and conducted code reviews with focus on SOLID principles.",
+      "Designed and maintained CI/CD pipelines ensuring reliable deployments.",
+      "Drove transition to spec-driven development and integrated AI tools (GitHub Copilot, Amazon Kiro) to accelerate prototyping, code review, and automation.",
+      "Optimized performance across multiple systems and guided product teams in defining scalable solutions.",
+      "Migrated legacy applications to modern stacks, improving scalability and maintainability."
     ],
     "technologies": ["React", "Node.js", "TypeScript", "Sencha ExtJS", "JavaScript", ".NET", "SQL Server"]
   },
@@ -22,9 +22,11 @@
     "period": "MAR 2020 - PRESENT",
     "description": "Developed indie games for mobile and PC from planning to post-production using Unity and Godot.",
     "highlights": [
-      "Won 2nd place with the game Oliver the Octopus at LudiJam #01",
-      "Utilized GitHub and Bitbucket to maintain organized project repositories",
-      "Worked using tools like Trello and Notion to optimize the flow of developments"
+      "Founded an indie game studio to experiment with game design, develop portfolio projects, and participate in game jams.",
+      "Designed and released mobile and PC games using Unity and Godot, including Oliver the Octopus (2nd place at LudiJam #01).",
+      "Built open-source tools for Three.js, contributing to the web game development community.",
+      "Explored AI-assisted workflows with open-source local tools (Ollama, LM Studio Bionic, OpenCode) to accelerate the development processes.",
+      "Maintained organized repositories with GitHub/Bitbucket and optimized workflows using Trello and Notion."
     ],
     "technologies": ["Unity", "C#", "Godot", "GDScript"]
   },
