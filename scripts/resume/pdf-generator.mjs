@@ -42,7 +42,8 @@ export const writeHtmlPreview = (projectRoot, html) => {
   fs.mkdirSync(previewDir, { recursive: true });
 
   const htmlPath = path.join(previewDir, "resume.preview.html");
-  fs.writeFileSync(htmlPath, html, "utf8");
+  const stampedHtml = `<!-- generatedAt: ${new Date().toISOString()} -->\n${html}`;
+  fs.writeFileSync(htmlPath, stampedHtml, "utf8");
 
   return htmlPath;
 };
