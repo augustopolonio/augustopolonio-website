@@ -18,7 +18,7 @@ export const profile = {
   skills: {
     "Tech Stack": ["TypeScript", "JavaScript", "C#", "SQL", "HTML", "CSS", "GDScript"],
     Frameworks: ["React", "Next.js", "Node.js", ".NET", "Sencha ExtJS"],
-    "Game Development": ["Unity", "Godot", "Gameplay Systems", "Performance Tuning"],
+    "Game Development": ["Unity", "Godot", "Three.js", "Phaser", "Blender", "Tiled", "Aseprite", "Unreal Engine (Learning)"],
     "Creative & Media Tools": ["Affinity", "Photoshop", "Illustrator", "Blender", "DaVinci Resolve", "Studio One", "Sonar", "Pro Tools", "After Effects"],
     Practices: ["Technical Leadership", "CI/CD", "Spec-Driven Development", "Code Reviews", "SOLID"],
     "AI Tooling": ["GitHub Copilot", "Amazon Kiro", "Ollama", "LM Studio", "OpenCode", "SUNO AI", "Text-to-Speech"]
