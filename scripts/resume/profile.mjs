@@ -1,7 +1,7 @@
 export const profile = {
   name: "Augusto da Rocha Polonio",
   headline: "Game Developer • Senior Full Stack Engineer",
-  location: "Porto Alegre, Brazil (Remote)",
+  location: "Ivoti, Brazil (Remote)",
   contacts: {
     email: "augustodrp@gmail.com",
     phone: "+55 (51) 98270-7242"
