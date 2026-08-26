@@ -49,6 +49,9 @@ const renderSkills = (skills) =>
     )
     .join("\n");
 
+const renderSpokenLanguages = (languages = []) =>
+  languages.map((language) => `<li>${escapeHtml(language)}</li>`).join("\n");
+
 export const buildResumeHtml = (resume) => {
   return `<!doctype html>
 <html lang="en">
@@ -59,7 +62,7 @@ export const buildResumeHtml = (resume) => {
     <style>
       @page {
         size: A4;
-        margin: 12mm;
+        margin: 10mm;
       }
 
       :root {
@@ -76,17 +79,17 @@ export const buildResumeHtml = (resume) => {
         margin: 0;
         color: var(--ink);
         font-family: "Georgia", "Times New Roman", serif;
-        font-size: 11px;
-        line-height: 1.29;
+        font-size: 12px;
+        line-height: 1.3;
       }
 
       main {
         display: block;
       }
 
-      header,
-      section {
+      header {
         break-inside: avoid;
+        page-break-inside: avoid;
       }
 
       .header {
@@ -96,7 +99,7 @@ export const buildResumeHtml = (resume) => {
       }
 
       .name {
-        font-size: 22.5px;
+        font-size: 22.9px;
         line-height: 1.1;
         margin: 0;
         font-weight: 700;
@@ -106,7 +109,7 @@ export const buildResumeHtml = (resume) => {
         margin: 3px 0 0;
         color: var(--accent);
         font-weight: 600;
-        font-size: 11.4px;
+        font-size: 11.6px;
       }
 
       .contact {
@@ -119,7 +122,7 @@ export const buildResumeHtml = (resume) => {
 
       h2 {
         margin: 0 0 3px;
-        font-size: 10.7px;
+        font-size: 10.8px;
         text-transform: uppercase;
         letter-spacing: 0.12em;
         color: var(--accent);
@@ -135,8 +138,18 @@ export const buildResumeHtml = (resume) => {
         margin: 3px 0 0;
       }
 
+      .summary {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .experience {
+        break-inside: auto;
+        page-break-inside: auto;
+      }
+
       .job {
-        margin-top: 8px;
+        margin-top: 9px;
         break-inside: avoid-page;
         page-break-inside: avoid;
       }
@@ -147,7 +160,7 @@ export const buildResumeHtml = (resume) => {
 
       .job-header h3 {
         margin: 0;
-        font-size: 11.6px;
+        font-size: 11.75px;
       }
 
       .job-header h3 .company {
@@ -161,18 +174,30 @@ export const buildResumeHtml = (resume) => {
       }
 
       ul {
-        margin: 3px 0 0 14px;
+        margin: 3.5px 0 0 16px;
         padding: 0;
       }
 
       li {
-        margin: 0.8px 0;
+        margin: 1.2px 0;
       }
 
       .two-column {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        gap: 8px;
+        margin-top: 14px;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .spoken-languages {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .spoken-languages ul {
+        margin-top: 4px;
       }
 
       .education-item + .education-item {
@@ -243,7 +268,7 @@ export const buildResumeHtml = (resume) => {
         <p>${escapeHtml(resume.summary)}</p>
       </section>
 
-      <section>
+      <section class="experience">
         <h2 class="experience-title">Work Experience</h2>
         ${resume.workExperience.map(renderJob).join("\n")}
       </section>
@@ -259,6 +284,13 @@ export const buildResumeHtml = (resume) => {
           ${renderSkills(resume.skills)}
         </section>
       </div>
+
+      <section class="spoken-languages">
+        <h2>Languages</h2>
+        <ul>
+          ${renderSpokenLanguages(resume.spokenLanguages)}
+        </ul>
+      </section>
 
       <section>
         <h2>Links</h2>

@@ -8,20 +8,22 @@ export const profile = {
   },
   education: [
     {
-      degree: "Technologist Degree in Systems Analysis and Development",
+      degree: "Degree in Systems Analysis and Development",
       institution: "Senac-RS",
-      period: "Completed",
+      period: "2013-2015 (Completed)",
       details:
         "Focus on software engineering fundamentals, systems design, and web technologies."
     }
   ],
   skills: {
-    Languages: ["TypeScript", "JavaScript", "C#", "GDScript", "SQL"],
+    "Tech Stack": ["TypeScript", "JavaScript", "C#", "SQL", "HTML", "CSS", "GDScript"],
     Frameworks: ["React", "Next.js", "Node.js", ".NET", "Sencha ExtJS"],
     "Game Development": ["Unity", "Godot", "Gameplay Systems", "Performance Tuning"],
+    "Creative & Media Tools": ["Affinity", "Photoshop", "Illustrator", "Blender", "DaVinci Resolve", "Studio One", "Sonar", "Pro Tools", "After Effects"],
     Practices: ["Technical Leadership", "CI/CD", "Spec-Driven Development", "Code Reviews", "SOLID"],
-    "AI Tooling": ["GitHub Copilot", "Amazon Kiro", "Ollama", "LM Studio", "OpenCode"]
+    "AI Tooling": ["GitHub Copilot", "Amazon Kiro", "Ollama", "LM Studio", "OpenCode", "SUNO AI", "Text-to-Speech"]
   },
+  spokenLanguages: ["Portuguese (Native)", "English (B2)"],
   links: [
     {
       label: "Portfolio",
