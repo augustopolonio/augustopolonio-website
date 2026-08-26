@@ -25,11 +25,11 @@
       "Founded an indie game studio to experiment with game design, develop portfolio projects, and participate in game jams.",
       "Designed and released mobile and PC games using Unity and Godot, including Oliver the Octopus (2nd place at LudiJam #01).",
       "Built open-source tools for Three.js, contributing to the web game development community.",
-      "Produced audio and content pipelines for games and media projects using DAWs (Studio One, Sonar), AI music generation with SUNO AI, and AI dubbing workflows via text-to-speech.",
+      "Produced audio for games and media projects using DAWs (Studio One, Sonar), AI music generation with SUNO AI, and AI dubbing workflows via text-to-speech.",
       "Explored AI-assisted workflows with open-source local tools (Ollama, LM Studio Bionic, OpenCode) to accelerate the development processes.",
       "Worked as a generalist across production workflows, including image editing and asset preparation with Affinity, Photoshop, Illustrator, and Blender."
     ],
-    "technologies": ["Unity", "C#", "Godot", "GDScript"]
+    "technologies": ["Unity", "C#", "Godot", "GDScript", "Blender", "Three.js", "Tiled", "Aseprite", "Photoshop", "Illustrator", "Blender", "Studio One", "Sonar"]
   },
   {
     "company": "Qualitin",

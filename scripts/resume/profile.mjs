@@ -42,8 +42,8 @@ export const profile = {
       url: "https://augustopolonio.itch.io/"
     },
     {
-      label: "Twitter",
-      url: "https://twitter.com/augustopolonio"
+      label: "Twitter/X",
+      url: "https://x.com/augustopolonio"
     },
     {
       label: "Linktree",

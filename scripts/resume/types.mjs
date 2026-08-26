@@ -1,6 +1,9 @@
 export const REQUIRED_FIELDS = ["company", "location", "title", "period"];
 
-export const DEFAULT_OUTPUT_FILE = "public/Augusto_Polonio_Resume.pdf";
+export const DEFAULT_OUTPUT_FILE = {
+  en: "public/Augusto_Polonio_Resume.pdf",
+  "pt-br": "public/CV_Augusto_Polonio.pdf"
+};
 
 export const ROLE_BULLET_LIMIT = {
   min: 4,

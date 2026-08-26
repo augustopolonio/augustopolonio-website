@@ -65,22 +65,48 @@ npm run generate-resume
 
 ## Resume Generator
 
-The repository includes a modular resume generator that reads structured data and outputs a 2-page PDF resume.
+The repository includes a modular resume generator that reads structured data and outputs a 2-page PDF resume in English or Portuguese.
+
+### English Resume
 
 - Input data: `public/data/experiences.json`
 - Output PDF: `public/Augusto_Polonio_Resume.pdf`
 - HTML preview: `scripts/resume/output/resume.preview.html`
 
-Generate or refresh the resume with:
+Generate or refresh with:
 
 ```bash
 npm run generate-resume
 ```
 
-You can also pass optional custom input/output paths:
+Or with custom paths:
 
 ```bash
 node scripts/resume/index.mjs public/data/experiences.json public/Augusto_Polonio_Resume.pdf
+```
+
+### Portuguese Resume (CV)
+
+- Input data: `public/data/experiences-pt-br.json`
+- Output PDF: `public/CV_Augusto_Polonio.pdf`
+- HTML preview: `scripts/resume/output/resume.preview.html`
+
+Generate with:
+
+```bash
+npm run generate-resume-pt
+```
+
+Or directly:
+
+```bash
+node scripts/resume/index.mjs --lang pt-br
+```
+
+You can also specify custom language, input, and output:
+
+```bash
+node scripts/resume/index.mjs --lang pt-br public/data/experiences-pt-br.json public/CV_Augusto_Polonio.pdf
 ```
 
 ## Credits (Assets & Music)

@@ -1,0 +1,95 @@
+[
+  {
+    "company": "Quattrus",
+    "location": "Porto Alegre, BR (Remoto)",
+    "title": "Tech Lead & Senior Full Stack Engineer",
+    "period": "FEV 2022 - PRESENTE",
+    "description": "Liderou iniciativas técnicas e colaborou com arquitetos e engenheiros para entregar novas funcionalidades em produtos SaaS ERP.",
+    "highlights": [
+      "Liderou iniciativas técnicas através de múltiplos sistemas SaaS ERP, colaborando com arquitetos e engenheiros para entregar novas funcionalidades e modernizar plataformas.",
+      "Mentorou desenvolvedores, reforçou práticas de código limpo e conduziu code reviews com foco em princípios SOLID.",
+      "Otimizou performance através de múltiplos sistemas e orientou times de produto na definição de soluções escaláveis.",
+      "Migrou aplicações legadas para stacks modernos, melhorando escalabilidade e manutenibilidade.",
+      "Impulsionou transição para desenvolvimento orientado por specs e integrou ferramentas IA (GitHub Copilot, Amazon Kiro) para acelerar prototipagem, code review e automação.",
+      "Main tech: React, Node.js, TypeScript, Sencha ExtJS, JavaScript, .NET, SQL Server."
+    ],
+    "technologies": ["React", "Node.js", "TypeScript", "Sencha ExtJS", "JavaScript", ".NET", "SQL Server"]
+  },
+  {
+    "company": "Master Cat Games",
+    "location": "Ivoti, BR",
+    "title": "Game Developer (Indie)",
+    "period": "MAR 2020 - PRESENTE",
+    "description": "Desenvolveu jogos indie para mobile e PC desde o planejamento até a pós-produção usando Unity e Godot.",
+    "highlights": [
+      "Fundou um estúdio indie de jogos para experimentar game design, desenvolver projetos de portfólio e participar de game jams.",
+      "Produziu áudio para projetos de jogos e mídia usando DAWs (Studio One, Sonar), geração de música com IA via SUNO AI e fluxos de dublagem com IA via text-to-speech.",
+      "Explorou fluxos de trabalho assistidos por IA com ferramentas open-source locais (Ollama, LM Studio Bionic, OpenCode) para acelerar os processos de desenvolvimento.",
+      "Projetou e lançou jogos mobile e PC usando Unity e Godot, incluindo Oliver the Octopus (2º lugar em LudiJam #01).",
+      "Construiu ferramentas open-source para Three.js, contribuindo para a comunidade de desenvolvimento de jogos web.",
+      "Main tech: Unity, C#, Godot, GDScript."
+    ],
+    "technologies": ["Unity", "C#", "Godot", "GDScript", "Blender", "Three.js", "Tiled", "Aseprite", "Photoshop", "Illustrator", "Blender", "Studio One", "Sonar"]
+  },
+  {
+    "company": "Qualitin",
+    "location": "Porto Alegre, BR (Remoto)",
+    "title": "Senior Full Stack Developer",
+    "period": "JAN 2016 - FEV 2022",
+    "description": "Liderou entrega end-to-end de funcionalidades SaaS ERP, desde design de solução e coding até testing, documentação e suporte em produção.",
+    "highlights": [
+      "Elevou qualidade de engenharia ao introduzir padrões mantíveis de código, code reviews estruturados e disciplina de entrega mais forte.",
+      "Projetou e entregou uma camada de API reutilizável para o produto principal, melhorando velocidade de integração entre sistemas internos e externos.",
+      "Redesenhou jornadas de usuário chave e interfaces, melhorando usabilidade para times de gestão da qualidade e reduzindo friction de suporte.",
+      "Entregou e manteve funcionalidades Android e iOS, incluindo fluxos de push notifications integrados com OneSignal.",
+      "Modernizou codebases mobile legadas ao atualizar versões de Sencha Touch e Cordova, melhorando compatibilidade de dispositivos e estabilidade.",
+      "Main tech: .NET, C#, HTML, CSS, JavaScript, jQuery, JSON, SQL Server, Web Services, APIs, Sencha ExtJS, Cordova, Swagger, LINQ, NHibernate."
+    ],
+    "technologies": [".NET", "C#", "HTML", "CSS", "JavaScript", "jQuery", "JSON", "SQL Server", "Web Services", "APIs", "Sencha ExtJS", "Cordova", "Swagger", "LINQ", "NHibernate"]
+  },
+  {
+    "company": "While Tech",
+    "location": "Porto Alegre, BR (Remoto)",
+    "title": "Game Developer",
+    "period": "MAR 2017 - JUN 2017",
+    "description": "Construiu e entregou o jogo educativo mobile Android Color Melody Piano, desde conceito de gameplay até implementação pronta para produção.",
+    "highlights": [
+      "Implementou loops de gameplay core e mecânicas de pontuação focadas em engajamento educativo e progressão do jogador.",
+      "Colaborou com stakeholders de produto e arte para alinhar interações de jogo com objetivos de aprendizado.",
+      "Otimizou performance e responsividade de entrada para dispositivos Android mid-range para melhorar jogabilidade.",
+      "Preparou builds pronte para release e validou qualidade através de gameplay, UI polish e integração de assets.",
+      "Main tech: Unity, C#, Photoshop, Illustrator."
+    ],
+    "technologies": ["Unity", "C#", "Photoshop", "Illustrator"]
+  },
+  {
+    "company": "Sollus",
+    "location": "Porto Alegre, BR",
+    "title": "Full Stack Developer",
+    "period": "OUT 2015 - JAN 2016",
+    "description": "Entregou uma plataforma de gestão de reembolsos para a área financeira, cobrindo planejamento, desenvolvimento e rollout operacional.",
+    "highlights": [
+      "Desenvolveu novos módulos para o software core do negócio, melhorando fluxos operacionais dos times de finanças.",
+      "Manteve e evoluiu sistemas CRM e web para garantir continuidade, estabilidade e resolução mais rápida de problemas.",
+      "Integrou fontes de dados legadas na nova solução de reembolso, alinhando restrições técnicas com regras de negócio.",
+      "Parceirizou com stakeholders para priorizar escopo de entrega e reduzir risco de implementação durante rollout.",
+      "Main tech: ASP.NET MVC, C#, PHP, HTML, CSS, JavaScript, Bootstrap, SQL Server, Web Services, LINQ, NHibernate."
+    ],
+    "technologies": ["ASP.NET MVC", "C#", "PHP", "HTML", "CSS", "JavaScript", "Bootstrap", "SQL Server", "Web Services", "LINQ", "NHibernate"]
+  },
+  {
+    "company": "Qualitin",
+    "location": "Porto Alegre, BR",
+    "title": "Full Stack Developer",
+    "period": "JUL 2013 - SET 2015",
+    "description": "Impulsionou uma iniciativa de modernização front-end ao migrar interfaces legadas Silverlight e ASP.NET para Sencha ExtJS.",
+    "highlights": [
+      "Liderou migração de módulos críticos de dashboard e UI, permitindo evolução mais rápida do produto e melhor manutenibilidade.",
+      "Projetou e implementou um fluxo de login unificado entre aplicações, fortalecendo segurança e consistência de experiência do usuário.",
+      "Aplicou práticas Scrum e pair programming para aumentar previsibilidade de entrega e colaboração do time.",
+      "Resolveu bloqueadores críticos de sprint e problemas em produção com forte ownership e coordenação cross-team.",
+      "Main tech: ASP.NET, C#, HTML, CSS, JavaScript, Sencha ExtJS, SQL Server, LINQ, NHibernate."
+    ],
+    "technologies": ["ASP.NET", "C#", "HTML", "CSS", "JavaScript", "Sencha ExtJS", "SQL Server", "LINQ", "NHibernate"]
+  }
+]

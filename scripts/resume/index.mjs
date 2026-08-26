@@ -12,20 +12,60 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, "..", "..");
 
-const inputArg = process.argv[2] || "public/data/experiences.json";
-const outputArg = process.argv[3] || DEFAULT_OUTPUT_FILE;
+const parseArgs = () => {
+  const args = process.argv.slice(2);
+  let lang = "en";
+  let inputArg = null;
+  let outputArg = null;
+
+  for (let i = 0; i < args.length; i++) {
+    if (args[i] === "--lang") {
+      lang = args[i + 1] || "en";
+      i++;
+    } else if (!inputArg) {
+      inputArg = args[i];
+    } else if (!outputArg) {
+      outputArg = args[i];
+    }
+  }
+
+  return { lang, inputArg, outputArg };
+};
+
+const { lang, inputArg: inputArgPassed, outputArgPassed } = parseArgs();
+
+const getDataPaths = (language) => {
+  if (language === "pt-br") {
+    return {
+      experiencesFile: "public/data/experiences-pt-br.json",
+      profileModule: () => import("./profile-pt-br.mjs"),
+      stringsModule: () => import("./strings-pt-br.mjs")
+    };
+  }
+  return {
+    experiencesFile: "public/data/experiences.json",
+    profileModule: () => import("./profile.mjs"),
+    stringsModule: () => import("./strings-en.mjs")
+  };
+};
+
+const paths = getDataPaths(lang);
+const inputArg = inputArgPassed || paths.experiencesFile;
+const outputArg = outputArgPassed || DEFAULT_OUTPUT_FILE[lang];
 const outputPath = path.resolve(projectRoot, outputArg);
 
 const run = async () => {
   const { experiences, inputPath } = loadExperienceData(projectRoot, inputArg);
   const experienceYears = getExperienceYears(projectRoot);
+  const profileMod = await paths.profileModule();
+  const stringsMod = await paths.stringsModule();
 
   const normalized = buildNormalizedResume({
-    ...profile,
-    summary: buildProfileSummary(experienceYears),
+    ...profileMod.profile,
+    summary: profileMod.buildProfileSummary(experienceYears),
     workExperience: experiences
   });
-  const html = buildResumeHtml(normalized);
+  const html = buildResumeHtml(normalized, stringsMod.strings);
 
   const htmlPath = writeHtmlPreview(projectRoot, html);
   await renderPdfFromHtml({ html, outputPath });

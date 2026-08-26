@@ -52,7 +52,16 @@ const renderSkills = (skills) =>
 const renderSpokenLanguages = (languages = []) =>
   languages.map((language) => `<li>${escapeHtml(language)}</li>`).join("\n");
 
-export const buildResumeHtml = (resume) => {
+export const buildResumeHtml = (resume, strings = {}) => {
+  const s = {
+    professionalSummary: "Professional Summary",
+    workExperience: "Work Experience",
+    education: "Education",
+    skills: "Skills",
+    languages: "Languages",
+    links: "Links",
+    ...strings
+  };
   return `<!doctype html>
 <html lang="en">
   <head>
@@ -269,36 +278,36 @@ export const buildResumeHtml = (resume) => {
       </header>
 
       <section class="summary">
-        <h2>Professional Summary</h2>
+        <h2>${s.professionalSummary}</h2>
         <p>${escapeHtml(resume.summary)}</p>
       </section>
 
       <section class="experience">
-        <h2 class="experience-title">Work Experience</h2>
+        <h2 class="experience-title">${s.workExperience}</h2>
         ${resume.workExperience.map(renderJob).join("\n")}
       </section>
 
       <div class="two-column">
         <section>
-          <h2>Education</h2>
+          <h2>${s.education}</h2>
           ${renderEducation(resume.education)}
         </section>
 
         <section>
-          <h2>Skills</h2>
+          <h2>${s.skills}</h2>
           ${renderSkills(resume.skills)}
         </section>
       </div>
 
       <section class="spoken-languages">
-        <h2>Languages</h2>
+        <h2>${s.languages}</h2>
         <ul>
           ${renderSpokenLanguages(resume.spokenLanguages)}
         </ul>
       </section>
 
       <section>
-        <h2>Links</h2>
+        <h2>${s.links}</h2>
         <div class="links">
           ${renderLinks(resume.links)}
         </div>
