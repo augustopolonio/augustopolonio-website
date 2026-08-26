@@ -69,6 +69,7 @@ export const buildResumeHtml = (resume) => {
         --ink: #111827;
         --muted: #374151;
         --accent: #0f172a;
+        --divider: #c5ccd6;
       }
 
       * {
@@ -93,7 +94,6 @@ export const buildResumeHtml = (resume) => {
       }
 
       .header {
-        border-bottom: 1px solid #d1d5db;
         padding-bottom: 6px;
         margin-bottom: 8px;
       }
@@ -126,7 +126,7 @@ export const buildResumeHtml = (resume) => {
         text-transform: uppercase;
         letter-spacing: 0.12em;
         color: var(--accent);
-        border-bottom: 1px solid #d1d5db;
+        border-bottom: 2px solid var(--divider);
         padding-bottom: 2px;
       }
 
@@ -136,6 +136,11 @@ export const buildResumeHtml = (resume) => {
 
       .summary p {
         margin: 3px 0 0;
+      }
+
+      .summary h2,
+      .experience-title {
+        margin-bottom: 7px;
       }
 
       .summary {
@@ -247,7 +252,7 @@ export const buildResumeHtml = (resume) => {
       }
 
       .experience-title {
-        margin-bottom: 4px;
+        margin-bottom: 7px;
       }
     </style>
   </head>
