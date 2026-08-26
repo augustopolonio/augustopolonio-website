@@ -35,17 +35,14 @@
     "location": "Porto Alegre, BR (Remote)",
     "title": "Mid/Senior Full Stack Developer",
     "period": "JAN 2016 - FEB 2022",
-    "description": "Analyzed, planned, coded, tested, and documented web applications (SaaS ERP systems) for the quality management field.",
+    "description": "Led end-to-end delivery of SaaS ERP features, from solution design and coding to testing, documentation, and production support.",
     "highlights": [
-      "Introduced best coding practices to promote easy maintenance and improve performance",
-      "Redesigned UI and UX of some projects",
-      "Created an API for the company's main software",
-      "Developed, maintained, and published new features for Android and iOS mobile applications",
-      "Collaborated with the marketing team to integrate RD Station, enhancing digital marketing automation and management",
-      "Integrated the e-commerce system Vindi with web applications",
-      "Enhanced push notifications of mobile apps, integrating with OneSignal",
-      "Upgraded Sencha Touch applications, as well as Cordova versions to increase compatibility",
-      "Managed the workflow and documented all the processes using JetBrains YouTrack and after DevOps"
+      "Raised engineering quality by introducing maintainable coding standards, structured code reviews, and stronger delivery discipline.",
+      "Designed and shipped a reusable API layer for the main product, improving integration speed across internal and external systems.",
+      "Redesigned key user journeys and interfaces, improving usability for quality-management teams and reducing support friction.",
+      "Delivered and maintained Android and iOS features, including push-notification flows integrated with OneSignal.",
+      "Integrated RD Station and Vindi to support marketing automation and e-commerce operations with reliable data exchange.",
+      "Modernized legacy mobile codebases by upgrading Sencha Touch and Cordova versions, improving device compatibility and stability."
     ],
     "technologies": [".NET", "C#", "HTML", "CSS", "JavaScript", "jQuery", "JSON", "SQL Server", "Web Services", "APIs", "Sencha ExtJS", "Cordova", "Swagger", "LINQ", "NHibernate"]
   },
@@ -54,8 +51,13 @@
     "location": "Porto Alegre, BR (Remote)",
     "title": "Game Developer",
     "period": "MAR 2017 - JUN 2017",
-    "description": "Developed an educational mobile game for Android called Color Melody Piano.",
-    "highlights": [],
+    "description": "Built and delivered the educational Android game Color Melody Piano, from gameplay concept to production-ready implementation.",
+    "highlights": [
+      "Implemented core gameplay loops and scoring mechanics focused on educational engagement and player progression.",
+      "Collaborated with product and art stakeholders to align game interactions with learning objectives.",
+      "Optimized performance and input responsiveness for mid-range Android devices to improve playability.",
+      "Prepared release-ready builds and validated quality across gameplay, UI polish, and asset integration."
+    ],
     "technologies": ["Unity", "C#", "Photoshop", "Illustrator"]
   },
   {
@@ -63,11 +65,12 @@
     "location": "Porto Alegre, BR",
     "title": "Full Stack Developer",
     "period": "OCT 2015 - JAN 2016",
-    "description": "Planned and built a refund software for the financial area.",
+    "description": "Delivered a refund-management platform for the finance area, covering planning, development, and operational rollout.",
     "highlights": [
-      "Developed new features for the company's main software",
-      "Worked in maintenance of web pages and CRM software",
-      "Analyzed and worked in data integration of legacy systems, adapting to the business model"
+      "Developed new modules for the core business software, improving operational workflows for finance teams.",
+      "Maintained and evolved CRM and web systems to ensure continuity, stability, and faster issue resolution.",
+      "Integrated legacy data sources into the new refund solution, aligning technical constraints with business rules.",
+      "Partnered with stakeholders to prioritize delivery scope and reduce implementation risk during rollout."
     ],
     "technologies": ["ASP.NET MVC", "C#", "PHP", "HTML", "CSS", "JavaScript", "Bootstrap", "SQL Server", "Web Services", "LINQ", "NHibernate"]
   },
@@ -76,11 +79,12 @@
     "location": "Porto Alegre, BR",
     "title": "Full Stack Developer",
     "period": "JUL 2013 - SEP 2015",
-    "description": "Improved the front-end of the company's main software, migrating the Microsoft Silverlight and the old ASP.NET pages to Sencha ExtJS. This change allowed the company to close a deal with a new client in a short-time development.",
+    "description": "Drove a front-end modernization initiative by migrating legacy Silverlight and ASP.NET interfaces to Sencha ExtJS.",
     "highlights": [
-      "Developed new login for all applications, improving the security and UI",
-      "Organized and executed tasks, working with Scrum and Pair Programming as an agile method",
-      "Solved technical problems of sprint backlog"
+      "Led migration of critical dashboard and UI modules, enabling faster product evolution and improved maintainability.",
+      "Designed and implemented a unified login flow across applications, strengthening security and user experience consistency.",
+      "Applied Scrum and pair-programming practices to increase delivery predictability and team collaboration.",
+      "Resolved high-priority sprint blockers and production issues with strong ownership and cross-team coordination."
     ],
     "technologies": ["ASP.NET", "C#", "HTML", "CSS", "JavaScript", "Sencha ExtJS", "SQL Server", "LINQ", "NHibernate"]
   }

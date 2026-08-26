@@ -60,6 +60,27 @@ npm run dev
 npm run build
 npm run start
 npm run lint
+npm run generate-resume
+```
+
+## Resume Generator
+
+The repository includes a modular resume generator that reads structured data and outputs a 2-page PDF resume.
+
+- Input data: `public/data/experiences.json`
+- Output PDF: `Augusto_Polonio_Resume.pdf`
+- HTML preview: `scripts/resume/output/resume.preview.html`
+
+Generate or refresh the resume with:
+
+```bash
+npm run generate-resume
+```
+
+You can also pass optional custom input/output paths:
+
+```bash
+node scripts/resume/index.mjs public/data/experiences.json Augusto_Polonio_Resume.pdf
 ```
 
 ## Credits (Assets & Music)
