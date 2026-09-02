@@ -1,20 +1,4 @@
-[
-  {
-    "company": "Quattrus",
-    "location": "Porto Alegre, BR (Remote)",
-    "title": "Tech Lead & Senior Full Stack Software Engineer",
-    "period": "FEB 2022 - PRESENT",
-    "description": "Collaborated with architects and engineers to implement new features in SaaS ERP products.",
-    "highlights": [
-      "Led technical initiatives across multiple SaaS ERP systems, collaborating with architects and engineers to deliver new features and modernize platforms.",
-      "Mentored developers, enforced clean code practices, and conducted code reviews with focus on SOLID principles.",
-      "Designed and maintained CI/CD pipelines ensuring reliable deployments.",
-      "Drove transition to spec-driven development and integrated AI tools (GitHub Copilot, Amazon Kiro) to accelerate prototyping, code review, and automation.",
-      "Optimized performance across multiple systems and guided product teams in defining scalable solutions.",
-      "Migrated legacy applications to modern stacks, improving scalability and maintainability."
-    ],
-    "technologies": ["React", "Node.js", "TypeScript", "Sencha ExtJS", "JavaScript", ".NET", "SQL Server"]
-  },
+[ 
   {
     "company": "Master Cat Games",
     "location": "Ivoti, BR",
@@ -30,6 +14,22 @@
       "Worked as a generalist across production workflows, including image editing and asset preparation with Affinity, Photoshop, Illustrator, and Blender."
     ],
     "technologies": ["Unity", "C#", "Godot", "GDScript", "Blender", "Three.js", "Tiled", "Aseprite", "Photoshop", "Illustrator", "Blender", "Studio One", "Sonar"]
+  },
+  {
+    "company": "Quattrus",
+    "location": "Porto Alegre, BR (Remote)",
+    "title": "Tech Lead & Senior Full Stack Software Engineer",
+    "period": "FEB 2022 - AUG 2026",
+    "description": "Collaborated with architects and engineers to implement new features in SaaS ERP products.",
+    "highlights": [
+      "Led technical initiatives across multiple SaaS ERP systems, collaborating with architects and engineers to deliver new features and modernize platforms.",
+      "Mentored developers, enforced clean code practices, and conducted code reviews with focus on SOLID principles.",
+      "Designed and maintained CI/CD pipelines ensuring reliable deployments.",
+      "Drove transition to spec-driven development and integrated AI tools (GitHub Copilot, Amazon Kiro) to accelerate prototyping, code review, and automation.",
+      "Optimized performance across multiple systems and guided product teams in defining scalable solutions.",
+      "Migrated legacy applications to modern stacks, improving scalability and maintainability."
+    ],
+    "technologies": ["React", "Node.js", "TypeScript", "Sencha ExtJS", "JavaScript", ".NET", "SQL Server"]
   },
   {
     "company": "Qualitin",

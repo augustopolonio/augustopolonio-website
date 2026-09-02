@@ -1,20 +1,4 @@
-[
-  {
-    "company": "Quattrus",
-    "location": "Porto Alegre, BR (Remoto)",
-    "title": "Tech Lead & Senior Full Stack Engineer",
-    "period": "FEV 2022 - PRESENTE",
-    "description": "Liderou iniciativas técnicas e colaborou com arquitetos e engenheiros para entregar novas funcionalidades em produtos SaaS ERP.",
-    "highlights": [
-      "Liderou iniciativas técnicas através de múltiplos sistemas SaaS ERP, colaborando com arquitetos e engenheiros para entregar novas funcionalidades e modernizar plataformas.",
-      "Mentorou desenvolvedores, reforçou práticas de código limpo e conduziu code reviews com foco em princípios SOLID.",
-      "Otimizou performance através de múltiplos sistemas e orientou times de produto na definição de soluções escaláveis.",
-      "Migrou aplicações legadas para stacks modernos, melhorando escalabilidade e manutenibilidade.",
-      "Impulsionou transição para desenvolvimento orientado por specs e integrou ferramentas IA (GitHub Copilot, Amazon Kiro) para acelerar prototipagem, code review e automação.",
-      "Main tech: React, Node.js, TypeScript, Sencha ExtJS, JavaScript, .NET, SQL Server."
-    ],
-    "technologies": ["React", "Node.js", "TypeScript", "Sencha ExtJS", "JavaScript", ".NET", "SQL Server"]
-  },
+[  
   {
     "company": "Master Cat Games",
     "location": "Ivoti, BR",
@@ -30,6 +14,22 @@
       "Main tech: Unity, C#, Godot, GDScript."
     ],
     "technologies": ["Unity", "C#", "Godot", "GDScript", "Blender", "Three.js", "Tiled", "Aseprite", "Photoshop", "Illustrator", "Blender", "Studio One", "Sonar"]
+  },
+  {
+    "company": "Quattrus",
+    "location": "Porto Alegre, BR (Remoto)",
+    "title": "Tech Lead & Senior Full Stack Engineer",
+    "period": "FEV 2022 - AGO 2026",
+    "description": "Liderou iniciativas técnicas e colaborou com arquitetos e engenheiros para entregar novas funcionalidades em produtos SaaS ERP.",
+    "highlights": [
+      "Liderou iniciativas técnicas através de múltiplos sistemas SaaS ERP, colaborando com arquitetos e engenheiros para entregar novas funcionalidades e modernizar plataformas.",
+      "Mentorou desenvolvedores, reforçou práticas de código limpo e conduziu code reviews com foco em princípios SOLID.",
+      "Otimizou performance através de múltiplos sistemas e orientou times de produto na definição de soluções escaláveis.",
+      "Migrou aplicações legadas para stacks modernos, melhorando escalabilidade e manutenibilidade.",
+      "Impulsionou transição para desenvolvimento orientado por specs e integrou ferramentas IA (GitHub Copilot, Amazon Kiro) para acelerar prototipagem, code review e automação.",
+      "Main tech: React, Node.js, TypeScript, Sencha ExtJS, JavaScript, .NET, SQL Server."
+    ],
+    "technologies": ["React", "Node.js", "TypeScript", "Sencha ExtJS", "JavaScript", ".NET", "SQL Server"]
   },
   {
     "company": "Qualitin",
