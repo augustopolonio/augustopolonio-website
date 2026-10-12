@@ -1,5 +1,17 @@
 [ 
   {
+    "company": "Osten Games",
+    "location": "João Pessoa, BR (Remote)",
+    "title": "Game Developer (Freelance)",
+    "period": "SEP 2026 - PRESENT",
+    "description": "Worked on improving character animations, VFX, and SFX for the mobile game DATA2073 – Merge Siege.",
+    "highlights": [
+      "Responsibilities included fixing and adding missing animations, adapting visual effects with multiple muzzle points, balancing sound effects, and ensuring consistency between sandbox testing and gameplay.",
+      "Contributed to enhancing the overall visual and audio quality of 28 characters in the game."
+    ],
+    "technologies": ["Unity", "C#", "Blender", "Affinity Designer", "Audacity"]
+  },
+  {
     "company": "Master Cat Games",
     "location": "Ivoti, BR",
     "title": "Game Developer (Self-Employed)",
