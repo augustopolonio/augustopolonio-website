@@ -58,13 +58,7 @@ export default function Home() {
 
       <main className="min-h-screen">
         {/* Hero Section */}
-        <HeroSection />
-
-        {/* Portfolio Game Section */}
-        <GameIframeWithStartPanel />
-
-        {/* Interactive Terminal Section */}
-        <InteractiveTerminal />
+        {/* <HeroSection /> */}
 
         {/* Featured Projects Section */}
         <FeaturedProjects />
@@ -187,6 +181,12 @@ export default function Home() {
             </div>
           </div>
         )}
+
+        {/* Portfolio Game Section */}
+        <GameIframeWithStartPanel />
+
+        {/* Interactive Terminal Section */}
+        <InteractiveTerminal />
 
         {/* About Section */}
         <section id="about" className="py-24 px-6 bg-zinc-50 dark:bg-zinc-900/30">

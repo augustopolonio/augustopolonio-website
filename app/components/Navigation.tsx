@@ -75,7 +75,7 @@ export default function Navigation() {
           >
             <div className="flex flex-col">
               <span className="text-xl font-bold">Augusto Polonio</span>
-              <span className="text-xs text-muted">Senior Software & Game Developer</span>
+              <span className="text-xs text-muted">Sr. Software & Game Developer</span>
             </div>
           </Link>
 
