@@ -16,7 +16,7 @@
     "status": "open-source",
     "tags": ["Three.js", "TypeScript", "WebGL", "First Person", "Open Source"],
     "image": "/screenshots/first-person-starter-kit-threejs.png",
-    "link": "https://github.com/augustopolonio/first-person-starter-kit",
+    "link": "https://augustopolonio.itch.io/first-person-starter-kit-for-threejs",
     "engine": "threejs"
   },
   {
