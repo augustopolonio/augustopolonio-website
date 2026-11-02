@@ -10,9 +10,9 @@ import StaggerChildren, { StaggerItem } from './components/StaggerChildren';
 import SocialLinks from './components/SocialLinks';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getWebMobileYears, getGameDevYears } from './utils/calculateExperience';
-import { Laptop, Gamepad2, FileDown } from 'lucide-react';
+import { Laptop, Gamepad2, FileDown, ArrowLeft, ArrowRight } from 'lucide-react';
 import { trackResumeDownload, trackContact, trackSocialClick } from './utils/analytics';
 
 const labVideos = [
@@ -35,6 +35,7 @@ export default function Home() {
   const gameDevYears = getGameDevYears();
 
   const [activeLabVideoId, setActiveLabVideoId] = useState<string | null>(null);
+  const labTrackRef = useRef<HTMLDivElement>(null);
   const activeLabVideo = activeLabVideoId
     ? labVideos.find((v) => v.videoId === activeLabVideoId) || null
     : null;
@@ -87,7 +88,7 @@ export default function Home() {
             <ScrollReveal variant="fadeUp" delay={0.15}>
               <div className="relative -mx-6">
                 <div className={`px-6 overflow-x-auto no-scrollbar lab-marquee ${activeLabVideoId ? 'pointer-events-none' : ''}`}>
-                  <div className="flex gap-4 lab-marquee-track">
+                  <div ref={labTrackRef} className="flex gap-4 lab-marquee-track">
                     {labCarouselItems.map((video, index) => (
                       <button
                         key={`${video.videoId}-${index}`}
@@ -127,6 +128,40 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
+
+                {/* Navigation buttons */}
+                <button
+                  type="button"
+                  onMouseDown={() => {
+                    labTrackRef.current?.getAnimations().forEach((a) => (a.playbackRate = -3));
+                  }}
+                  onMouseUp={() => {
+                    labTrackRef.current?.getAnimations().forEach((a) => (a.playbackRate = 1));
+                  }}
+                  onMouseLeave={() => {
+                    labTrackRef.current?.getAnimations().forEach((a) => (a.playbackRate = 1));
+                  }}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/80 transition-colors select-none"
+                  aria-label="Hold to go back"
+                >
+                  <ArrowLeft className="w-5 h-5" />
+                </button>
+                <button
+                  type="button"
+                  onMouseDown={() => {
+                    labTrackRef.current?.getAnimations().forEach((a) => (a.playbackRate = 3));
+                  }}
+                  onMouseUp={() => {
+                    labTrackRef.current?.getAnimations().forEach((a) => (a.playbackRate = 1));
+                  }}
+                  onMouseLeave={() => {
+                    labTrackRef.current?.getAnimations().forEach((a) => (a.playbackRate = 1));
+                  }}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/80 transition-colors select-none"
+                  aria-label="Hold to speed up"
+                >
+                  <ArrowRight className="w-5 h-5" />
+                </button>
 
                 {/* Edge fade (boundary shadow) */}
                 <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-16 bg-gradient-to-r from-background to-transparent" />
