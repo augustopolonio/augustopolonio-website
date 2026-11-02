@@ -25,6 +25,7 @@ const labVideos = [
   { title: 'Third-Person Shooter Game', engine: 'unity' as const, videoId: '5SrqXDmgO4k' },
   { title: 'Action Platform Game', engine: 'unity' as const, videoId: 'H-3wmRPnLu8' },
   { title: 'Open World Game', engine: 'unity' as const, videoId: '9FmgfJ92fWA' },
+  { title: 'Flip Cubes', engine: 'unity' as const, videoId: 'ciy-CvVkqpQ' },
 ];
 
 const labCarouselItems = [...labVideos, ...labVideos];

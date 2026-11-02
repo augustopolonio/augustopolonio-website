@@ -24,6 +24,15 @@ export default function LabPage() {
 
   const projects: LabProject[] = [
     {
+      id: 10,
+      title: 'Flip Cubes',
+      description: 'Unity prototype of a Match-3 game, exploring grid mechanics, matching logic, and cube flipping interactions.',
+      status: 'Prototype',
+      tags: ['Unity', 'Match-3', 'Puzzle', 'Test'],
+      media: { kind: 'youtube', videoId: 'ciy-CvVkqpQ' },
+      engine: 'unity',
+    },
+    {
       id: 9,
       title: 'Resident Evil Clone (UE5 Test)',
       description: 'A quick Unreal Engine 5 test inspired by Resident Evil, combining Resident Horror V1 template with the Downtown Alley scene and ray tracing to study horror gameplay and visuals for Alone at the Fast Food.',
