@@ -17,7 +17,7 @@ interface Game {
   tags: string[];
   image: string;
   link: string;
-  engine: 'unity' | 'godot' | 'threejs' | 'react';
+  engine: 'unity' | 'godot' | 'threejs' | 'react' | 'phaser';
 }
 
 export default function FeaturedProjects() {
@@ -141,6 +141,8 @@ export default function FeaturedProjects() {
                           />
                           <span className="text-white text-xs font-medium">React</span>
                         </>
+                      ) : game.engine === 'phaser' ? (
+                        <span className="text-white text-xs font-medium">Phaser</span>
                       ) : (
                         <>
                           <Image

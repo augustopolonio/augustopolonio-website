@@ -10,6 +10,16 @@
     "engine": "react"
   },
   {
+    "id": -4,
+    "title": "Zoo Pop: Drop & Merge",
+    "description": "A drop and merge game with cute zoo animals.",
+    "status": "in-development",
+    "tags": ["Puzzle", "Merge", "Casual", "Mobile"],
+    "image": "/game_covers/ZooDrop_Cover.png",
+    "link": "https://www.youtube.com/watch?v=heFHNUGt-AE",
+    "engine": "phaser"
+  },
+  {
     "id": -2,
     "title": "Little Big Smasher - Demo",
     "description": "A platformer game built in 48 hours for the Kenney Jam.",
