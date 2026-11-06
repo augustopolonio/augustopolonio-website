@@ -20,6 +20,16 @@
     "engine": "phaser"
   },
   {
+    "id": -5,
+    "title": "Neon Cube",
+    "description": "Neon Cube is a 3D tic-tac-toe game.",
+    "status": "in-development",
+    "tags": ["3D", "Tic-Tac-Toe", "Strategy", "Puzzle"],
+    "image": "/game_covers/NEON_CUBE_Cover.png",
+    "link": "https://youtu.be/Z0w5PgnXXBQ",
+    "engine": "threejs"
+  },
+  {
     "id": -2,
     "title": "Little Big Smasher - Demo",
     "description": "A platformer game built in 48 hours for the Kenney Jam.",
