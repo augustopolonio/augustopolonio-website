@@ -1,5 +1,15 @@
 [
   {
+    "id": -3,
+    "title": "Angry Breads",
+    "description": "Angry Breads is a roguelike where you play as a brave little bread.",
+    "status": "in-development",
+    "tags": ["Roguelike", "Arena Survival", "Action", "Single Player"],
+    "image": "/game_covers/Angry_Breads.png",
+    "link": "https://youtu.be/w82qPikePGI",
+    "engine": "react"
+  },
+  {
     "id": -2,
     "title": "Little Big Smasher - Demo",
     "description": "A platformer game built in 48 hours for the Kenney Jam.",

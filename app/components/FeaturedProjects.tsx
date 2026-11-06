@@ -17,7 +17,7 @@ interface Game {
   tags: string[];
   image: string;
   link: string;
-  engine: 'unity' | 'godot' | 'threejs';
+  engine: 'unity' | 'godot' | 'threejs' | 'react';
 }
 
 export default function FeaturedProjects() {
@@ -78,8 +78,9 @@ export default function FeaturedProjects() {
           animate={isInView ? "visible" : "hidden"}
         >
           {games.map((game) => {
-            const CardWrapper = game.status === 'in-development' ? Link : 'a';
-            const cardProps = game.status === 'in-development'
+            const isExternal = game.link.startsWith('http');
+            const CardWrapper = (game.status === 'in-development' && !isExternal) ? Link : 'a';
+            const cardProps = (game.status === 'in-development' && !isExternal)
               ? { href: game.link }
               : { href: game.link, target: "_blank", rel: "noopener noreferrer" };
 
@@ -128,6 +129,17 @@ export default function FeaturedProjects() {
                             className="object-contain"
                           />
                           <span className="text-white text-xs font-medium">Three.js</span>
+                        </>
+                      ) : game.engine === 'react' ? (
+                        <>
+                          <Image
+                            src="/react_logo.png"
+                            alt="React"
+                            width={20}
+                            height={20}
+                            className="object-contain"
+                          />
+                          <span className="text-white text-xs font-medium">React</span>
                         </>
                       ) : (
                         <>
